@@ -1,4 +1,4 @@
-html {
+ html {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
 }
@@ -43,42 +43,103 @@ main{
     text-align: justify;
 }
 
-table{
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-    border: solid;
+/* Navigation Bar */
+nav {
+    background: #f4f4f4;
+    padding: 10px 0;
 }
 
-table *{
-    text-align: center;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
+#nav {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-p {
-    font-family: monospace;
+#nav li {
+    margin: 0 15px;
+}
+
+#nav a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
     color: black;
 }
 
-.personal p{
+#nav a:hover {
+    text-decoration: underline;
+}
+
+/* Recipe Section */
+.recipe-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.recipe-img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.ingredients {
+    width: 40%;
+    list-style: none;
+    padding: 0;
+}
+
+.ingredients li {
+    padding: 5px 0;
+}
+
+/* Instructions */
+.instructions {
+    list-style: none;
+    padding: 0;
+    width: 80%;
+    margin: 20px auto;
+    list-style-type: decimal; /* Adds 1, 2, 3 before each list item */
+    padding-left: 20px; /* Indent for better alignment */
+}
+
+.instructions li {
+    padding: 8px 0;
+}
+
+/* Nutrition Table */
+#nutrition {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+#nutrition th, #nutrition td {
+    padding: 10px;
     text-align: left;
-    color: darkgreen;
 }
 
-.recipe li{
-    background-color: orange;
+#nutrition th {
+    font-weight: bold;
 }
 
-.personal a{
-    color: inherit;
-    background-color: aqua;
+/* Recipe Source Links */
+.link {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+    text-decoration: none;
+    font-weight: bold;
+    color: #0077cc;
 }
 
-a{
-    color: blue;
+.link:hover {
+    text-decoration: underline;
 }
 
 .nutrition tr{
