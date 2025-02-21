@@ -148,3 +148,12 @@ nav {
 .linktable tr{
     background-color: cornflowerblue;
 }
+
+.personal p{
+    color: darkgreen;
+}
+
+.personal a{
+    color: darkgreen;
+    background-color: aqua;
+}
