@@ -1,4 +1,4 @@
-html {
+ html {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
 }
@@ -6,6 +6,17 @@ html {
 h1{
     font-family: 'nyt-karnak';
     font-size: 5em;
+    color: #df321b;
+}
+
+h2{
+    font-family: 'nyt-karnak';
+    font-size: 2.5em;
+    color: #df321b;
+}
+
+h3{
+    font-family: 'nyt-karnak';
     color: #df321b;
 }
 
@@ -20,7 +31,7 @@ header{
 }
 
 body{
-    background-color: #f1ead7c5
+    background-color: #f1ead7c5;
 }
 
 main{
