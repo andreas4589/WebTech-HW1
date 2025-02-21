@@ -38,3 +38,102 @@ main{
 
     text-align: justify;
 }
+
+/* Navigation Bar */
+nav {
+    background: #f4f4f4;
+    padding: 10px 0;
+}
+
+#nav {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#nav li {
+    margin: 0 15px;
+}
+
+#nav a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+#nav a:hover {
+    text-decoration: underline;
+}
+
+/* Recipe Section */
+.recipe-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.recipe-img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.ingredients {
+    width: 40%;
+    list-style: none;
+    padding: 0;
+}
+
+.ingredients li {
+    padding: 5px 0;
+}
+
+/* Instructions */
+.instructions {
+    list-style: none;
+    padding: 0;
+    width: 80%;
+    margin: 20px auto;
+    list-style-type: decimal; /* Adds 1, 2, 3 before each list item */
+    padding-left: 20px; /* Indent for better alignment */
+}
+
+.instructions li {
+    padding: 8px 0;
+}
+
+/* Nutrition Table */
+#nutrition {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+#nutrition th, #nutrition td {
+    padding: 10px;
+    text-align: left;
+}
+
+#nutrition th {
+    font-weight: bold;
+}
+
+/* Recipe Source Links */
+.link {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+    text-decoration: none;
+    font-weight: bold;
+    color: #0077cc;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
