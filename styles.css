@@ -64,3 +64,23 @@ table *{
     padding-left: 1em;
     padding-right: 1em;
 }
+
+p {
+    font-family: monospace;
+    color: black;
+}
+
+.personal p{
+    text-align: left;
+    color: darkgreen;
+}
+
+
+
+.personal a{
+    color: inherit;
+}
+
+a{
+    color: blue;
+}
