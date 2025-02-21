@@ -3,30 +3,37 @@
     font-size: 1.2em;
 }
 
+.title{
+    font-family: 'nyt-karnak';
+    color: #df321b;
+}
 h1{
-    font-family: 'nyt-karnak';
     font-size: 3em;
-    color: #df321b;
 }
-
 h2{
-    font-family: 'nyt-karnak';
-    font-size: 2.5em;
-    color: #df321b;
-}
-
-h3{
-    font-family: 'nyt-karnak';
-    color: #df321b;
+    font-size: 2.3em;
 }
 
 header{
-    padding: 0.8em;
-    margin: 4em, 1em, 4em;
+    margin: 4em 20em;
+
     text-align: center;
     border: solid;
     border-radius: 1cm;
     border-color: grey;
+}
+
+#catchPhrase{
+    padding-bottom: 3em;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.Introduction{
+    padding-bottom: 4em;
+    padding-right: 20em;
+    text-align: justify;
 }
 
 body{
@@ -34,14 +41,48 @@ body{
 }
 
 main{
-    margin: 4em;
+    margin: 5em 10em;
+    padding: 5em 10em;
 
-    background-color: white;
-
-    padding: 8em;
+    background-color: #f4f4f4;
 
     text-align: justify;
 }
+
+
+#captionLinkTable{
+    color: #df321b;
+    font-weight: bold;
+    padding-bottom: 1em;
+}
+
+
+.linktable tr{
+    background-color: cornflowerblue;
+}
+
+#linkTable, th, td{
+    border: 2px solid;
+    border-collapse: collapse;
+    padding: 1em;
+    text-align: center;
+}
+
+.IndexTable{
+    padding-bottom: 3em;
+}
+
+.ImgArticle{
+    width: 40%
+}
+
+
+
+
+
+
+
+
 
 /* Navigation Bar */
 nav {
@@ -144,9 +185,6 @@ nav {
 
 .nutrition tr{
     background-color: grey;
-}
-.linktable tr{
-    background-color: cornflowerblue;
 }
 
 .personal p{
