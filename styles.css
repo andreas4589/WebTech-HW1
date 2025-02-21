@@ -5,7 +5,7 @@
 
 h1{
     font-family: 'nyt-karnak';
-    font-size: 5em;
+    font-size: 3em;
     color: #df321b;
 }
 
@@ -21,9 +21,8 @@ h3{
 }
 
 header{
-    margin-top: 5em;
-    margin-left: 8em;
-    margin-right: 8em;
+    padding: 0.8em;
+    margin: 4em, 1em, 4em;
     text-align: center;
     border: solid;
     border-radius: 1cm;
@@ -35,17 +34,11 @@ body{
 }
 
 main{
-    margin-top: 5em;
-    margin-bottom: 8em;
-    margin-right: 8em;
-    margin-left: 8em;
+    margin: 4em;
 
     background-color: white;
 
-    padding-top: 4em;
-    padding-bottom: 4em;
-    padding-right: 4em;
-    padding-left: 4em;
+    padding: 8em;
 
     text-align: justify;
 }
