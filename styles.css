@@ -9,6 +9,17 @@ h1{
     color: #df321b;
 }
 
+h2{
+    font-family: 'nyt-karnak';
+    font-size: 2.5em;
+    color: #df321b;
+}
+
+h3{
+    font-family: 'nyt-karnak';
+    color: #df321b;
+}
+
 header{
     margin-top: 5em;
     margin-left: 8em;
@@ -20,7 +31,7 @@ header{
 }
 
 body{
-    background-color: #f1ead7c5
+    background-color: #f1ead7c5;
 }
 
 main{
@@ -37,4 +48,19 @@ main{
     padding-left: 4em;
 
     text-align: justify;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border: solid;
+}
+
+table *{
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
