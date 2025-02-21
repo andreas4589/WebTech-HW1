@@ -68,8 +68,8 @@ p {
     color: darkgreen;
 }
 
-.recipe p{
-    
+.recipe li{
+    background-color: orange;
 }
 
 .personal a{
@@ -79,4 +79,11 @@ p {
 
 a{
     color: blue;
+}
+
+.nutrition tr{
+    background-color: grey;
+}
+.linktable tr{
+    background-color: cornflowerblue;
 }
