@@ -32,7 +32,7 @@ header{
 
 .Introduction{
     padding-bottom: 4em;
-    padding-right: 20em;
+    padding-right: 1em;
     text-align: justify;
 }
 
@@ -136,7 +136,7 @@ nav {
 }
 
 .ingredients li {
-    padding: 5px 0;
+    padding: 2px 0;
 }
 
 /* Instructions */
@@ -144,9 +144,9 @@ nav {
     list-style: none;
     padding: 0;
     width: 80%;
-    margin: 20px auto;
+    margin: 40px;
     list-style-type: decimal; /* Adds 1, 2, 3 before each list item */
-    padding-left: 20px; /* Indent for better alignment */
+    /*padding-left: 20px; /* Indent for better alignment */
 }
 
 .instructions li {
@@ -181,6 +181,7 @@ nav {
 
 .link:hover {
     text-decoration: underline;
+    color:#0669a1
 }
 
 .nutrition tr{
@@ -189,9 +190,20 @@ nav {
 
 .personal p{
     color: darkgreen;
+    width: 70%;
+    text-align: center;
+    padding-left: 10em;
 }
 
 .personal a{
     color: darkgreen;
     background-color: aqua;
+}
+
+.personal h2{
+    text-align: center;
+}
+
+footer{
+    text-align: center;
 }
