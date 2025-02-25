@@ -3,24 +3,41 @@
     font-size: 1.2em;
 }
 
-.title{
-    font-family: 'nyt-karnak';
-    color: #df321b;
-}
 h1{
     font-size: 3em;
+    font-family: 'nyt-karnak';
+    color: #e22911e8;
 }
 h2{
     font-size: 2.3em;
+    font-family: 'nyt-karnak';
+    color: rgb(212, 68, 48);
+}
+
+h3{
+    font-size: 1em;
+    font-family: 'nyt-karnak';
+    color: rgb(151, 51, 38);
+    text-decoration: underline;
+}
+
+h4{
+    font-size: 1em;
+    font-family: 'nyt-karnak';
+    color: rgb(0, 0, 0);
+}
+
+#cat-img{
+    size: 10%
 }
 
 header{
     margin: 4em 20em;
-
     text-align: center;
     border: solid;
     border-radius: 1cm;
     border-color: grey;
+    backdrop-filter: blur(3.5px);
 }
 
 #introductionCatchPhrase{
@@ -38,24 +55,26 @@ header{
 
 body{
     background-color: #f1ead7c5;
+    
 }
 
+#header{
+    background-image: url("pictures/cooking cat.jpg");  
+    background-size: 50%;
+    alt: "Cooking cat image";
+}
 main{
     margin: 5em 10em;
     padding: 5em 10em;
-
     background-color: #f4f4f4;
-
     text-align: justify;
 }
-
 
 #linkTableCaption{
     color: #df321b;
     font-weight: bold;
     padding-bottom: 1em;
 }
-
 
 .linkTableBody tr{
     background-color: cornflowerblue;
@@ -73,18 +92,9 @@ main{
 }
 
 .ImgArticle{
-    width: 40%
+    width: 40%;
 }
 
-
-
-
-
-
-
-
-
-/* Navigation Bar */
 nav {
     background: #f4f4f4;
     padding: 10px 0;
@@ -104,16 +114,16 @@ nav {
 
 #nav a {
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     color: black;
 }
 
 #nav a:hover {
     text-decoration: underline;
+    color:#0077cc;
 }
 
-/* Recipe Section */
 .recipe-container {
     display: flex;
     justify-content: center;
@@ -127,6 +137,7 @@ nav {
 .recipe-img {
     width: 50%;
     border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .ingredients {
@@ -139,21 +150,18 @@ nav {
     padding: 2px 0;
 }
 
-/* Instructions */
 .instructions {
     list-style: none;
     padding: 0;
     width: 80%;
     margin: 40px;
-    list-style-type: decimal; /* Adds 1, 2, 3 before each list item */
-    /*padding-left: 20px; /* Indent for better alignment */
+    list-style-type: decimal; 
 }
 
 .instructions li {
     padding: 8px 0;
 }
 
-/* Nutrition Table */
 #nutrition {
     width: 60%;
     margin: 20px auto;
@@ -169,7 +177,6 @@ nav {
     font-weight: bold;
 }
 
-/* Recipe Source Links */
 .link {
     display: block;
     text-align: center;
