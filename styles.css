@@ -38,9 +38,6 @@ header{
     border-radius: 1cm;
     border-color: grey;
     backdrop-filter: blur(3.5px);
-    background-image: url("pictures/cooking cat.jpg");  
-    background-size: 50%;
-    alt: "Cooking cat image";
 }
 
 .banner{
@@ -68,7 +65,7 @@ body{
 }
 
 main{
-    margin: 5% 10%;
+    margin: 5em 10em;
     padding: 5em 10em;
     background-color: #f4f4f4;
     text-align: justify;
@@ -85,7 +82,7 @@ main{
 }
 
 .link-table, th, td{
-    border: 2px solid;
+    border: 0.1em solid;
     border-collapse: collapse;
     padding: 1em;
     text-align: center;
@@ -184,7 +181,7 @@ nav {
 .recipe-img {
     width: 50%;
     border-radius: 0.7em;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
 }
 
 .ingredients {
@@ -194,29 +191,29 @@ nav {
 }
 
 .ingredients li {
-    padding: 2px 0;
+    padding: 0.15em 0;
 }
 
 .instructions {
     list-style: none;
     padding: 0;
     width: 80%;
-    margin: 40px;
+    margin: 2.8rem;
     list-style-type: decimal; 
 }
 
 .instructions li {
-    padding: 8px 0;
+    padding: 0.5rem 0;
 }
 
 #nutrition {
     width: 60%;
-    margin: 20px auto;
+    margin: 1rem auto;
     border-collapse: collapse;
 }
 
 #nutrition th, #nutrition td {
-    padding: 10px;
+    padding: 0.6rem;
     text-align: left;
 }
 
@@ -227,7 +224,7 @@ nav {
 .link {
     display: block;
     text-align: center;
-    margin: 20px 0;
+    margin: 1.6rem 0;
     text-decoration: none;
     font-weight: bold;
     color: #0077cc;
@@ -244,9 +241,8 @@ nav {
 
 .personal p{
     color: darkgreen;
-    width: 70%;
     text-align: center;
-    padding-left: 10em;
+    text-align: justify;
 }
 
 .personal a{
@@ -262,56 +258,42 @@ footer{
     text-align: center;
 }
 
-@media screen and (max-width: 600px) {
-    *{
-        font-size: 0.7em;
-    }
+@media screen and (max-width: 1200px) {
 
-    #nav a{
-        font-size: 1.3em;
-    }
+    main{
+        width: 50%;
+        margin: 2.5em 5em;
+        padding: 2.5em 5em;
 
-    .ingredients {
-        font-size: 1.3em;
-        width: 45%;
-        list-style: none;
-        padding: 0.125em;
-    }
-    
-    .ingredients li {
-        padding: 1px 0;
-    }
-
-    .instructions {
-        list-style: none;
-        padding: 0;
-        width: 80%;
-        margin: 10px;
-        list-style-type: decimal; 
-        font-size: 1em;
-    }
-    
-    .instructions li {
-        padding: 4px 0;
     }
 
     header{
-        margin: 3em 5rem;
+        margin: 2em 10em;
     }
 
-    #nutrition {
-        width: 80%;
-        margin: 20px auto;
-        border-collapse: collapse;
+    .banner{
+        background-size: 25%;
+    }
+
+    h1{
+        font-size: 1.5em;
+    }
+    h2{
+        font-size: 1.15em;
+
     }
     
-    #nutrition th, #nutrition td {
-        font-size: 1.8em;
-        padding: 0.6em;
-        text-align: left;
+    h3{
+        font-size: 0.5em;
     }
     
-    #nutrition th {
-        font-weight: bold;
+    h4{
+        font-size: 0.5em;
     }
+
+    html {
+        font-size: 0.6em;
+    }
+
+
   }
