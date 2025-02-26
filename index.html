@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset=utf-8>
     <meta name="description" content="Welcome to our cooking blog. If your looking for the bests recipes on the internet, you came to the right place">
     <title>Web for cooking</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
   </head>
   <body>
-    <section id = "header">
     <header>      
-      <h1 class="title">Web For Cooking</h1>
+      <h1>Web For Cooking</h1>
     </header>
-  </section>
     <main>
       <section class="introduction">
-          <p id="introduction__catch-phrase">
+          <p class="introduction__catch-phrase">
             Welcome to web for cooking — a journey through flavors and history.
           </p>
           <p class="introduction__text">
@@ -30,7 +28,7 @@
 
       <table class="link-table">
 
-        <caption id="link-table__caption">Structure of the website:</caption>
+        <caption class="link-table__caption">Structure of the website:</caption>
 
         <thead>
           <tr>
@@ -39,7 +37,7 @@
           </tr>
         </thead>
 
-        <tbody class = "link-table__body">
+        <tbody class="link-table__body">
           <tr>
             <td><a href="index.html">Main page</a></td>
             <td>
@@ -59,7 +57,7 @@
 
           <tr>
             <td>
-              <a href="about_us.html" class = "internal">About us</a>
+              <a href="about-us.html" class = "internal">About us</a>
             </td>
             <td>Learn more about the amazing authors of this website</td>
           </tr>
@@ -67,81 +65,90 @@
         </tbody>
       </table>
 
-      <section id="news">
-        <h2 class="title">Culinary news of the month</h2>
+      <section class="news">
+        <h2>Culinary news of the month</h2>
 
-        <article id="news__art1">
-          <aside id="news__art1--aside">
-            <h3 class="title">What to cook in February</h3>
-            <p>
-              February may be the heart of winter, but it's also a great time to cook with fresh,
-              seasonal ingredients that bring warmth and comfort to your table.
-              Root vegetable like carrots, parsnips, and sweet potatoes are at their peak,
-              perfect for roasting or adding to hearty stews.
-              Leafy greens such as kale and Swiss chard provide a boost of nutrition,
-              while citrus fruits like oranges and grapefruits add a refreshing brightness
-              to both sweet and savory dishes.
-            </p>
-            <p>
-              If you still don't know wich dish is right for you, DELICIOUS is here to help!
-              On their website, you'll find a variety of meals perfect for the month of February,
-              featuring seasonal ingredients and comforting flavors.
-            </p>
-            <p>
-              If you're still hesitant, don't worry—we've picked three delicious recipies
-              from their collection that we absolutely approve of.
-              Give them a try and enjoy the best flavors this season has to offer!
-            </p>
+        <article class="news__art1">
+          <h3>What to cook in February</h3>
+          <section class="article-container">
+            <aside class="news__art1-aside">
+              <p>
+                February may be the heart of winter, but it's also a great time to cook with fresh,
+                seasonal ingredients that bring warmth and comfort to your table.
+                Root vegetable like carrots, parsnips, and sweet potatoes are at their peak,
+                perfect for roasting or adding to hearty stews.
+                Leafy greens such as kale and Swiss chard provide a boost of nutrition,
+                while citrus fruits like oranges and grapefruits add a refreshing brightness
+                to both sweet and savory dishes.
+              </p>
+              <p>
+                If you still don't know wich dish is right for you, DELICIOUS is here to help!
+                On their website, you'll find a variety of meals perfect for the month of February,
+                featuring seasonal ingredients and comforting flavors.
+              </p>
+              <p>
+                If you're still hesitant, don't worry—we've picked three delicious recipies
+                from their collection that we absolutely approve of.
+                Give them a try and enjoy the best flavors this season has to offer!
+              </p>
+      
+              <dl class="news__art1__suggestions">
+                <dt>Rhubarb, rose and pistachio crumble</dt>
+                <dd>
+                  This easy to make yet sophisticated dish offers a delightful balance of
+                  tart rhubarb and fragrant flavors, perfect for a comforting treat
+                </dd>
+      
+                <dt>Lime marmalade</dt>
+                <dd>
+                  This easy-to-follow recipe captures the essence of fresh limes,
+                  resulting in a golden-hued marmalade that's both sweet and tart,
+                  making it a delightful addition to your pantry
+                </dd>
+      
+                <dt>Speedy anchovy and broccoli pasta</dt>
+                <dd>
+                  Packed with the savory taste of anchovies and the freshness of broccoli,
+                  this budget-friendly recipe come together quickly,
+                  making it a go-to meal when you want something tasty without
+                  breaking the bank.
+                  A perfect balance of salty, tangy, and wholesome!
+                </dd>
+              </dl>
+            </aside>
     
-            <dl id="news__art1__suggestions">
-              <dt>Rhubarb, rose and pistachio crumble</dt>
-              <dd>
-                This easy to make yet sophisticated dish offers a delightful balance of
-                tart rhubarb and fragrant flavors, perfect for a comforting treat
-              </dd>
-    
-              <dt>Lime marmalade</dt>
-              <dd>
-                This easy-to-follow recipe captures the essence of fresh limes,
-                resulting in a golden-hued marmalade that's both sweet and tart,
-                making it a delightful addition to your pantry
-              </dd>
-    
-              <dt>Speedy anchovy and broccoli pasta</dt>
-              <dd>
-                Packed with the savory taste of anchovies and the freshness of broccoli,
-                this budget-friendly recipe come together quickly,
-                making it a go-to meal when you want something tasty without
-                breaking the bank.
-                A perfect balance of salty, tangy, and wholesome!
-              </dd>
-            </dl>
-          </aside>
-  
-          <a id="news_art1_img" href="https://www.deliciousmagazine.co.uk/collections/february-seasonal-food/"target = "_blank"><img class="recipe-img" src="pictures/article1.jpg" alt="Seasonal product february"></a>
+            <figure class="news__art1__img">
+              <img class="recipe-img" src="pictures/article1.jpg" alt="Seasonal product february">
+              <figcaption>
+                Want to know more about the recipies? Go check their <a href="https://www.deliciousmagazine.co.uk/collections/february-seasonal-food/" target = "_blank">website</a>
+              </figcaption>
+            </figure>
+          </section>
         </article>
-
-        <article>
-          <aside>
-            <h3 class="title">Street food festival the 21/02 in Amsterdam</h3>
-            <p>
-              If there is one date in february that a foodie should not forget,
-              it's of course the deck Streetfood festival.
-              It's a two hour experience where you will discover street food inspired dishes from all over the world.
-              Don't wait and book a <a href="https://www.deckamsterdam.com/events"target = "_blank">table</a>!
-            </p>
-          </aside>
-
-          <figure>
-            <img class="recipe-img" src="pictures/article2.jpg" alt="Street food festival">
-            <figcaption>Want to know more about the festival? Go check their <a href="https://www.instagram.com/deckamsterdam/"target = "_blank">instagram account</a>!</figcaption>
-          </figure>
+  
+        <article class="news__art2">
+          <h3>Street food festival the 21/02 in Amsterdam</h3>
+          <section class="article-container">
+            <aside>
+              <p>
+                If there is one date in february that a foodie should not forget,
+                it's of course the deck Streetfood festival.
+                It's a two hour experience where you will discover street food inspired dishes from all over the world.
+                Don't wait and book a <a href="https://www.deckamsterdam.com/events" target = "_blank">table</a>!
+              </p>
+            </aside>
+  
+            <figure class="news__art2__img">
+              <img class="recipe-img" src="pictures/article2.jpg" alt="Street food festival">
+              <figcaption>Want to know more about the festival? Go check their <a href="https://www.instagram.com/deckamsterdam/" target = "_blank">instagram account</a>!</figcaption>
+            </figure>
+          </section>
         </article>
       </section>
     </main>
     <footer>
       This website was created by three genuises students.
-      If you want to know more about us, and the assignment: <a href="about_us.html">click here</a>
+      If you want to know more about us, and the assignment: <a href="about-us.html">click here</a>
     </footer>
   </body>
 </html>

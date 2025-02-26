@@ -1,7 +1,8 @@
- html {
+html {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2em;
 }
+
 
 
 h1{
@@ -41,7 +42,7 @@ header{
     backdrop-filter: blur(3.5px);
 }
 
-#introduction__catch-phrase{
+.introduction__catch-phrase{
     padding-bottom: 3em;
     text-align: center;
     font-size: 1.1em;
@@ -59,19 +60,19 @@ body{
     
 }
 
-#header{
+header{
     background-image: url("pictures/cooking cat.jpg");  
     background-size: 50%;
     alt: "Cooking cat image";
 }
 main{
-    margin: 5em 10em;
+    margin: 5% 10%;
     padding: 5em 10em;
     background-color: #f4f4f4;
     text-align: justify;
 }
 
-#link-table__caption{
+.link-table__caption{
     color: #df321b;
     font-weight: bold;
     padding-bottom: 1em;
@@ -93,24 +94,47 @@ main{
 }
 
 
-#news__art1{
+.article-container{
     display: flex;
 }
 
-#news__art1__img{
-    margin-left: 30px;
+.news__art1__img{
+    margin-left: 2.5em;
+    display: flex;
+    width: 200%;
     display: inline-block;
 }
 
-#news__art1__suggestions{
+.news__art1__img img{
+    width: 100%;
+    object-fit: contain;
+      
+}
+
+.news__art2__img{
+    margin-left: 2.5em;
+    display: flex;
+    width: 100%;
+    display: inline-block;
+}
+
+.news__art2__img img{
+    width: 100%;
+    object-fit: contain;
+      
+}
+
+
+
+.news__art1__suggestions{
     padding-top: 1em;
 }
 
-#news__art1__suggestions dt{
+.news__art1__suggestions dt{
     font-weight: bold;
 }
 
-#news__art1__suggestions dd{
+.news__art1__suggestions dd{
     padding-bottom: 0.8em;
 }
 
@@ -118,7 +142,7 @@ main{
 
 nav {
     background: #f4f4f4;
-    padding: 10px 0;
+    padding: 0.8em 0;
 }
 
 #nav {
@@ -130,12 +154,12 @@ nav {
 }
 
 #nav li {
-    margin: 0 15px;
+    margin: 0 1em;
 }
 
 #nav a {
     text-decoration: none;
-    font-size: 20px;
+    font-size: 1em;
     font-weight: bold;
     color: initial;
 }
@@ -149,7 +173,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 20px;
+    gap: 1.3em;
     width: 80%;
     margin: 0 auto;
     flex-wrap: wrap;
@@ -157,7 +181,7 @@ nav {
 
 .recipe-img {
     width: 50%;
-    border-radius: 10px;
+    border-radius: 0.7em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -234,4 +258,9 @@ nav {
 
 footer{
     text-align: center;
+}
+
+
+@media  and (max-width: 600px) {
+    
 }
