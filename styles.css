@@ -3,8 +3,6 @@ html {
     font-size: 1.2em;
 }
 
-
-
 h1{
     font-size: 3em;
     font-family: 'nyt-karnak', serif;
@@ -40,6 +38,9 @@ header{
     border-radius: 1cm;
     border-color: grey;
     backdrop-filter: blur(3.5px);
+    background-image: url("pictures/cooking cat.jpg");  
+    background-size: 50%;
+    alt: "Cooking cat image";
 }
 
 .introduction__catch-phrase{
@@ -60,11 +61,7 @@ body{
     
 }
 
-header{
-    background-image: url("pictures/cooking cat.jpg");  
-    background-size: 50%;
-    alt: "Cooking cat image";
-}
+
 main{
     margin: 5% 10%;
     padding: 5em 10em;
@@ -260,7 +257,56 @@ footer{
     text-align: center;
 }
 
+@media screen and (max-width: 600px) {
+    *{
+        font-size: 0.7em;
+    }
 
-@media  and (max-width: 600px) {
+    #nav a{
+        font-size: 1.3em;
+    }
+
+    .ingredients {
+        font-size: 1.3em;
+        width: 45%;
+        list-style: none;
+        padding: 0.125em;
+    }
     
-}
+    .ingredients li {
+        padding: 1px 0;
+    }
+
+    .instructions {
+        list-style: none;
+        padding: 0;
+        width: 80%;
+        margin: 10px;
+        list-style-type: decimal; 
+        font-size: 1em;
+    }
+    
+    .instructions li {
+        padding: 4px 0;
+    }
+
+    header{
+        margin: 3em 5rem;
+    }
+
+    #nutrition {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+    }
+    
+    #nutrition th, #nutrition td {
+        font-size: 1.8em;
+        padding: 0.6em;
+        text-align: left;
+    }
+    
+    #nutrition th {
+        font-weight: bold;
+    }
+  }
