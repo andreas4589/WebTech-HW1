@@ -3,28 +3,29 @@
     font-size: 1.2em;
 }
 
+
 h1{
     font-size: 3em;
-    font-family: 'nyt-karnak';
+    font-family: 'nyt-karnak', serif;
     color: #e22911e8;
 }
 h2{
     font-size: 2.3em;
-    font-family: 'nyt-karnak';
+    font-family: 'nyt-karnak', serif;
     color: rgb(212, 68, 48);
 }
 
 h3{
     font-size: 1em;
-    font-family: 'nyt-karnak';
+    font-family: 'nyt-karnak', serif;
     color: rgb(151, 51, 38);
     text-decoration: underline;
 }
 
 h4{
     font-size: 1em;
-    font-family: 'nyt-karnak';
-    color: rgb(0, 0, 0);
+    font-family: 'nyt-karnak', serif;
+    color: initial;
 }
 
 #cat-img{
@@ -40,14 +41,14 @@ header{
     backdrop-filter: blur(3.5px);
 }
 
-#introductionCatchPhrase{
+#introduction__catch-phrase{
     padding-bottom: 3em;
     text-align: center;
     font-size: 1.1em;
     font-weight: bold;
 }
 
-.introductionText{
+.introduction__text{
     padding-bottom: 4em;
     padding-right: 1em;
     text-align: justify;
@@ -70,30 +71,50 @@ main{
     text-align: justify;
 }
 
-#linkTableCaption{
+#link-table__caption{
     color: #df321b;
     font-weight: bold;
     padding-bottom: 1em;
 }
 
-.linkTableBody tr{
+.link-table__body{
     background-color: cornflowerblue;
 }
 
-.linkTable, th, td{
+.link-table, th, td{
     border: 2px solid;
     border-collapse: collapse;
     padding: 1em;
     text-align: center;
 }
 
-.linktable{
+.link-table{
     padding-bottom: 3em;
 }
 
-.ImgArticle{
-    width: 40%;
+
+#news__art1{
+    display: flex;
 }
+
+#news__art1__img{
+    margin-left: 30px;
+    display: inline-block;
+}
+
+#news__art1__suggestions{
+    padding-top: 1em;
+}
+
+#news__art1__suggestions dt{
+    font-weight: bold;
+}
+
+#news__art1__suggestions dd{
+    padding-bottom: 0.8em;
+}
+
+
 
 nav {
     background: #f4f4f4;
@@ -116,7 +137,7 @@ nav {
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
-    color: black;
+    color: initial;
 }
 
 #nav a:hover {
