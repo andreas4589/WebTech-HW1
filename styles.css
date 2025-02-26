@@ -258,17 +258,12 @@ footer{
     text-align: center;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
 
     main{
-        width: 50%;
         margin: 2.5em 5em;
         padding: 2.5em 5em;
 
-    }
-
-    header{
-        margin: 2em 10em;
     }
 
     .banner{
