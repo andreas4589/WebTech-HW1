@@ -43,6 +43,12 @@ header{
     alt: "Cooking cat image";
 }
 
+.banner{
+    background-image: url("pictures/cooking cat.jpg");  
+    background-size: 50%;
+    alt: "Cooking cat image";
+}
+
 .introduction__catch-phrase{
     padding-bottom: 3em;
     text-align: center;
@@ -60,7 +66,6 @@ body{
     background-color: #f1ead7c5;
     
 }
-
 
 main{
     margin: 5% 10%;
