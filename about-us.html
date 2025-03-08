@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About us</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <header>      
         <h1 class="title">About Us</h1>
     </header>
     <nav>
-        <ul id = "nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="recipes.html">Recipes</a></li>
-        </ul>
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About us</a>
+        <a href="recipes.html">Recipes</a>
     </nav>
+    <form action="/action_page.php">
+        <label for="myfile">Select a file:</label>
+        <input type="file" id="myfile" name="myfile" multiple><br><br>
+        <input type="submit">
+    </form>
     <main>
         <section class = "personal">
             <h2 class="title">The story of Andreas</h2>

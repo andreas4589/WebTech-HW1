@@ -142,28 +142,27 @@ main{
 nav {
     background: #f4f4f4;
     padding: 0.8em 0;
-}
-
-#nav {
     display: flex;
+    align-content: space-between;
     justify-content: center;
     list-style: none;
     padding: 0;
-    margin: 0;
-}
-
-#nav li {
     margin: 0 1em;
+    position: sticky;
+    top: 20px;
+    border: black solid 1px;
+    border-radius: 1em;
 }
 
-#nav a {
+nav a {
     text-decoration: none;
     font-size: 1em;
     font-weight: bold;
     color: initial;
+    padding: 0.5em 1em;
 }
 
-#nav a:hover {
+nav a:hover {
     text-decoration: underline;
     color:#0077cc;
 }
