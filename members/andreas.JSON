@@ -1,0 +1,19 @@
+[
+    {
+      "firstName": "Andreas",
+      "lastName": "Meeldijk",
+      "age": 22,
+      "hobbies": ["Fitness", "Reading", "Coding", "Gaming", "Watching movies"],
+      "email": "a.b.meeldijk@students.uu.nl",
+      "photo": "",
+      "major": "Artificial Intelligence",
+      "courses": [
+        {
+          "title": "Web Technology",
+          "teacher": { "firstName": "Sergey", "lastName": "Sosnovsky" },
+          "description": "This course is about web technology."
+        }
+      ]
+    }
+]
+  
