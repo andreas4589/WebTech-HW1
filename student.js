@@ -4,7 +4,7 @@ class Student extends Person {
     #email;
     #photo;
     #major;
-    #courses = [];
+    #courses;
 
     constructor(firstName, lastName, age, hobbies, email, photo, major, courses) {
         super(firstName, lastName);

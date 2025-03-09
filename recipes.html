@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body>
+    <button id="darkModeToggle">🌙 Dark Mode</button>
     <header>
         <h1>Recipes</h1>
     </header>
@@ -16,6 +18,7 @@
         <a href= #fr-toast>French Toast</a>
         <a href= #bf-chicken>Buffalo Chicken Grilled Cheese</a>
         <a href= #ch-flor>Chicken Florentine Pasta</a>
+        <a href= #add-recipe> Add your own recipes</a>
     </nav>
     <hr>
     <main class = "recipe">
@@ -137,6 +140,18 @@
             <li> Turn off heat and add in the cooked penne, baby spinach, parsley and red pepper flakes (if using). Toss until the pasta is evenly coated in sauce and the spinach has wilted slightly. Serve immediately. </li>
         </ul>
         <a class = "link" href = "https://www.delish.com/cooking/recipe-ideas/recipes/a51443/chicken-florentine-pasta-recipe/" target = "_blank">Source: delish/Chicken Florentine Pasta</a>
+        <div id="empty-container">
+
+        </div>
     </main>
+    <h2 id="add-recipe">Add a Recipe</h2>
+    <p>Share your favorite recipe with us!</p>
+    <form id="recipe-form">
+        <input type="text" id="recipe-title" class="recipe-input" placeholder="Recipe Title" required>
+        <input type="file" id="recipe-image" accept="image/*">
+        <textarea id="recipe-ingredients" class="recipe-input" placeholder="Ingredients (comma separated)" required></textarea>
+        <textarea id="recipe-instructions" class="recipe-input" placeholder="Instructions" required></textarea>
+        <button type="submit" id="submit-recipe" class="recipe-input">Add Recipe</button>
+    </form>
   </body>
 </html>
