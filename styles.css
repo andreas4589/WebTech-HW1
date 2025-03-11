@@ -265,6 +265,9 @@ footer{
     main{
         background-color: #5e5e5e;
     }
+    .personal p {
+        color: rgb(1, 180, 1);
+    }
 }
 
 #darkModeToggle {
@@ -320,7 +323,21 @@ input#recipe-image{
 }
 
 #courses-table{
-    width: 30%;
+    border-collapse: collapse;
+    width: 60%;
+    box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
+}
+
+#courses-table th, 
+#courses-table td {
+    border: 1.5px solid black;
+    padding: 5px;
+    text-align: left;
+}
+
+#courses-table th {
+    background-color: #444; 
+    color: white; 
 }
 
 @media screen and (max-width: 1200px) {

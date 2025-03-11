@@ -17,7 +17,13 @@
         {
           "title": "Concurrency",
           "teacher": { "firstName": "Ivo", "lastName": "Gabe de Wolff" },
-          "description": "This course is about concurrent and parallel algorithms and programming"
+          "description": "This course is about concurrent and parallel algorithms and programming."
+        }
+        ,
+        {
+          "title": "Functional Programming",
+          "teacher": { "firstName": "Matthijs", "lastName": "Vákár" },
+          "description": "This course is about functional programming."
         }
       ]
     }

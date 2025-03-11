@@ -11,68 +11,71 @@ document.getElementById("darkModeToggle").addEventListener("click", function () 
     document.body.classList.toggle("dark-mode");
 });
 
-document.getElementById("recipe-form").addEventListener("submit", function (event) {
-    event.preventDefault();
-    const title = document.getElementById("recipe-title").value;
-    const image = document.getElementById("recipe-image").value || "default.jpg";
-    const ingredients = document.getElementById("recipe-ingredients").value.split(";");
-    const instructions = document.getElementById("recipe-instructions").value;
+function addRecipe(){
+    document.getElementById("recipe-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const title = document.getElementById("recipe-title").value;
+        const image = document.getElementById("recipe-image").value || "default.jpg";
+        const ingredients = document.getElementById("recipe-ingredients").value.split(";");
+        const instructions = document.getElementById("recipe-instructions").value;
 
-    const newRecipe = { title, image, ingredients, instructions };
+        const newRecipe = { title, image, ingredients, instructions };
 
-    const recipeContainer = document.getElementById("empty-container");
-    const recipeCard = document.createElement("div");
-    recipeCard.classList.add("recipe-card");
-    recipeCard.innerHTML = `
-        <h2>${newRecipe.title}</h2>
-        <img src="${newRecipe.image}" class="recipe-img" alt="${newRecipe.title}">
-        <h3>Ingredients:</h3>
-        <ul>${newRecipe.ingredients.map(ing => `<li>${ing.trim()}</li>`).join("")}</ul>
-        <h3>Instructions:</h3>
-        <p>${newRecipe.instructions}</p>`;
-    recipeContainer.appendChild(recipeCard);
+        const recipeContainer = document.getElementById("empty-container");
+        const recipeCard = document.createElement("div");
+        recipeCard.classList.add("recipe-card");
+        recipeCard.innerHTML = `
+            <h2>${newRecipe.title}</h2>
+            <img src="${newRecipe.image}" class="recipe-img" alt="${newRecipe.title}">
+            <h3>Ingredients:</h3>
+            <ul>${newRecipe.ingredients.map(ing => `<li>${ing.trim()}</li>`).join("")}</ul>
+            <h3>Instructions:</h3>
+            <p>${newRecipe.instructions}</p>`;
+        recipeContainer.appendChild(recipeCard);
 
-    // Reset form
-    document.getElementById("recipe-form").reset();
-});
-
-document.getElementById("file-input").addEventListener("change", function (e) {
-    const file = e.target.files[0];
-    fileContentDisplay.textContent = "";
-    messageDisplay.textContent = "";
-    console.log("File selected");
-    // Validate file existence and type
-    if (!file) {
-        showMessage("No file selected. Please choose a file.", "error");
-        return;
-    }
-    
-    if (!file.name.toLowerCase().endsWith(".json")) {
-        showMessage("Unsupported file type. Please select a .json file.", "error");
-        return;
-    }
-    
-    // Read the file
-    const reader = new FileReader();
-    reader.onload = () => {
-        const data = JSON.parse(reader.result);
-        console.log(data);
-        let studentArr = data[0];
-        let courses = []
-        for (let i =0; i < studentArr.courses.length; i++) {
-            courses.push(new Course(studentArr.courses[i].title, new Person(studentArr.courses[i].teacher.firstName, studentArr.courses[i].teacher.lastName), studentArr.courses[i].description));
-        }
-        let student = new Student(studentArr.firstName, studentArr.lastName, studentArr.age, studentArr.hobbies, studentArr.email, studentArr.photo, studentArr.major, courses);
-        students.push(student);
-        console.log(students.length);
-        displayMembers(students);
-    };
-    reader.onerror = () => {
-        showMessage("Error reading the file. Please try again.", "error");
-    };
-    reader.readAsText(file);
-    console.log("File read");
+        // Reset form
+        document.getElementById("recipe-form").reset();
     });
+}
+
+function fileInput(){
+    document.getElementById("file-input").addEventListener("change", function (e) {
+        const file = e.target.files[0];
+        fileContentDisplay.textContent = "";
+        messageDisplay.textContent = "";
+        // Validate file existence and type
+        if (!file) {
+            showMessage("No file selected. Please choose a file.", "error");
+            return;
+        }
+        
+        if (!file.name.toLowerCase().endsWith(".json")) {
+            showMessage("Unsupported file type. Please select a .json file.", "error");
+            return;
+        }
+        
+        // Read the file
+        const reader = new FileReader();
+        reader.onload = () => {
+            const data = JSON.parse(reader.result);
+            console.log(data);
+            let studentArr = data[0];
+            let courses = []
+            for (let i =0; i < studentArr.courses.length; i++) {
+                courses.push(new Course(studentArr.courses[i].title, new Person(studentArr.courses[i].teacher.firstName, studentArr.courses[i].teacher.lastName), studentArr.courses[i].description));
+            }
+            let student = new Student(studentArr.firstName, studentArr.lastName, studentArr.age, studentArr.hobbies, studentArr.email, studentArr.photo, studentArr.major, courses);
+            students.push(student);
+            console.log(students.length);
+            displayMembers(students);
+        };
+        reader.onerror = () => {
+            showMessage("Error reading the file. Please try again.", "error");
+        };
+        reader.readAsText(file);
+        console.log("File read");
+        });
+}
 
 // Displays a message to the user
 function showMessage(message, type) {
@@ -100,26 +103,30 @@ function displayMembers(members) {
         img.id = "member-photo";
         memberSection.appendChild(img);
 
-        let par1 = document.createElement("p");
-        par1.textContent = `Age: ${member.age}`;
-        let par2 = document.createElement("p");
-        par2.textContent = ` Hobbies: ${member.hobbies.join(", ")}`;
-        let par3 = document.createElement("p");
-        par3.textContent += ` Email: ${member.email}`;
-        let par4 = document.createElement("p");
-        par4.textContent += ` Major: ${member.major}`;
-        memberSection.appendChild(par1);
-        memberSection.appendChild(par2);
-        memberSection.appendChild(par3);
-        memberSection.appendChild(par4);
+        let details = [
+            `Age: ${member.age}`,
+            `Hobbies: ${member.hobbies.join(", ")}`,
+            `Email: ${member.email}`,
+            `Major: ${member.major}`
+        ];
+
+        details.forEach(text => {
+            let p = document.createElement("p");
+            p.textContent = text;
+            memberSection.appendChild(p);
+        });
 
         let courses = document.createElement("table");
         courses.id = "courses-table";
         let header = courses.createTHead();
-        let row = header.insertRow(0);
-        let cell1 = row.insertCell(0);
-        let cell2 = row.insertCell(1);
-        let cell3 = row.insertCell(2);
+        let tr = document.createElement("tr");
+        let row = header.appendChild(tr);
+        let th1 = document.createElement("th");
+        let th2 = document.createElement("th");
+        let th3 = document.createElement("th");
+        let cell1 = row.appendChild(th1);
+        let cell2 = row.appendChild(th2);
+        let cell3 = row.appendChild(th3);
         cell1.textContent = "Course Title";
         cell2.textContent = "Teacher";
         cell3.textContent = "Description";
@@ -139,3 +146,14 @@ function displayMembers(members) {
         content.appendChild(memberSection);
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const path = window.location.pathname;
+
+    if (path.includes("recipes.html")) {
+        addRecipe();
+    }
+    else if (path.includes("about-us.html")) {
+        fileInput();
+    }
+});
