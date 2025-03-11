@@ -1,3 +1,6 @@
+import { Person } from "./person.js";
+import { Course } from "./course.js";
+
 class Student extends Person {
     #age;
     #hobbies;
@@ -19,14 +22,17 @@ class Student extends Person {
     // Setter for age (validates positive integer)
     set age(value) {
         if (!Number.isInteger(value) || value <= 0) {
+            alert("Error: Age must be a positive integer!");
             throw new Error("Age must be a positive integer.");
         }
+        
         this.#age = value;
     }
 
     // Setter for hobbies (must be a non-empty array)
     set hobbies(value) {
         if (!Array.isArray(value) || value.length === 0) {
+            alert("Error: Hobbies must be an array with at least one hobby!");
             throw new Error("Hobbies must be an array with at least one hobby.");
         }
         this.#hobbies = value;
@@ -36,6 +42,7 @@ class Student extends Person {
     set email(value) {
         const emailPattern = /^\S+@\S+\.\S+$/;
         if (!emailPattern.test(value)) {
+            alert("Error: Invalid email format!")
             throw new Error("Invalid email format.");
         }
         this.#email = value;
@@ -43,8 +50,9 @@ class Student extends Person {
 
     // Setter for photo (validates a proper URL ending in an image file extension)
     set photo(value) {
-        const urlPattern = /^https?:\/\/.+\.(jpg|png|jpeg|gif)$/;
+        const urlPattern = /\.(jpg|png|jpeg|gif)$/;
         if (!urlPattern.test(value)) {
+            alert("Error: Invalid photo URL. It must be a valid link to an image!")
             throw new Error("Invalid photo URL. It must be a valid link to an image.");
         }
         this.#photo = value;
@@ -52,6 +60,7 @@ class Student extends Person {
 
     set major(value) {
         if (typeof value !== "string" || value.length < 3) {
+            alert("Error: Major must be at least 3 characters long!")
             throw new Error("Major must be at least 3 characters long.");
         }
         this.#major = value;
@@ -60,6 +69,7 @@ class Student extends Person {
     // Setter for courses (must be an array of Course instances)
     set courses(value) {
         if (!Array.isArray(value) || value.some(course => !(course instanceof Course))) {
+            alert("Error: Courses must be an array containing only Course instances!")
             throw new Error("Courses must be an array containing only Course instances.");
         }
         this.#courses = [...value]; 
@@ -89,3 +99,5 @@ class Student extends Person {
         return this.#courses;
     }
 }
+
+export { Student };

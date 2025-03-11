@@ -1,3 +1,4 @@
+import { Person } from './person.js';
 class Course {
     #title;
     #teacher; 
@@ -42,3 +43,5 @@ class Course {
         return this.#description;
     }
 }
+
+export { Course };

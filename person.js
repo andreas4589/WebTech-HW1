@@ -29,3 +29,5 @@ class Person {
         return this.#lastName;
     }
 }
+
+export { Person };

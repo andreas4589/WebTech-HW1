@@ -1,23 +1,17 @@
 [
     {
-      "firstName": "Andreas",
-      "lastName": "Meeldijk",
+      "firstName": "Kevin",
+      "lastName": "Derk",
       "age": 22,
       "hobbies": ["Fitness", "Reading", "Coding", "Gaming", "Watching movies"],
       "email": "a.b.meeldijk@students.uu.nl",
-      "photo": "pictures/Andreas.jpg",
+      "photo": "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*SDF5ryM6GChP4Oww-UpMnA.png",
       "major": "Artificial Intelligence",
       "courses": [
         {
           "title": "Web Technology",
           "teacher": { "firstName": "Sergey", "lastName": "Sosnovsky" },
           "description": "This course is about web technology."
-        }
-        ,
-        {
-          "title": "Concurrency",
-          "teacher": { "firstName": "Ivo", "lastName": "Gabe de Wolff" },
-          "description": "This course is about concurrent and parallel algorithms and programming"
         }
       ]
     }

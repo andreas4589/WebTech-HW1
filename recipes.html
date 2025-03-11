@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
 </head>
 <body>
     <button id="darkModeToggle">🌙 Dark Mode</button>
@@ -131,7 +131,7 @@
                 <li>pinch red pepper flakes (optional)</li>
             </ul>
         </div>
-        <h3 >Instructions</h3>
+        <h3>Instructions</h3>
         <ul class ="instructions">
             <li>In a large pot of salted boiling water, cook penne according to package instructions until al dente. Drain and set aside.</li>
             <li>In a large skillet over medium-high heat, heat 1 tablespoon oil. Season both sides of chicken with salt, pepper and oregano and cook until golden and no longer pink in the middle, 8 minutes per side. Transfer chicken a cutting board and let it rest for 5 minutes before slicing into strips.</li>
@@ -144,12 +144,13 @@
 
         </div>
     </main>
+    <hr>
     <h2 id="add-recipe">Add a Recipe</h2>
     <p>Share your favorite recipe with us!</p>
     <form id="recipe-form">
         <input type="text" id="recipe-title" class="recipe-input" placeholder="Recipe Title" required>
-        <input type="file" id="recipe-image" accept="image/*">
-        <textarea id="recipe-ingredients" class="recipe-input" placeholder="Ingredients (comma separated)" required></textarea>
+        <input type="text" id="recipe-image" class="recipe-input" accept="image/*" placeholder="Image URL">
+        <textarea id="recipe-ingredients" class="recipe-input" placeholder="Ingredients (semicolon separated)" required></textarea>
         <textarea id="recipe-instructions" class="recipe-input" placeholder="Instructions" required></textarea>
         <button type="submit" id="submit-recipe" class="recipe-input">Add Recipe</button>
     </form>
