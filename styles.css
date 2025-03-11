@@ -37,7 +37,6 @@ header{
     border: solid;
     border-radius: 1cm;
     border-color: grey;
-    backdrop-filter: blur(3.5px);
     box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -45,6 +44,7 @@ header{
     background-image: url("pictures/cooking cat.jpg");  
     background-size: 50%;
     alt: "Cooking cat image";
+    backdrop-filter: blur(3.5px);
 }
 
 .introduction__catch-phrase{
@@ -240,19 +240,27 @@ nav a:hover {
     background-color: grey;
 }
 
-.personal p{
+.personal {
+    font-family: Arial, sans-serif;
     color: darkgreen;
-    text-align: center;
-    text-align: justify;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.personal a{
-    color: darkgreen;
-    background-color: aqua;
+.personal p {
+    font-size: 1em;
+    margin: 10px 0;
+    line-height: 1.5;
 }
 
-.personal h2{
-    text-align: center;
+.personal h2 {
+    font-size: 1.5em;
+    color: rgb(197, 3, 3);
+    border-bottom: 2px solid darkgreen;
+    padding-bottom: 5px;
 }
 
 footer{
@@ -266,7 +274,11 @@ footer{
         background-color: #5e5e5e;
     }
     .personal p {
-        color: rgb(1, 180, 1);
+        color: rgb(2, 141, 2);
+    }
+
+    #file-input{
+        color:rgb(0, 0, 0);
     }
 }
 
@@ -304,6 +316,25 @@ input#recipe-image{
     width: 15%;
 }
 
+#file-input {
+    display: flex; 
+    margin: 25px auto; 
+    padding: 10px 10px; 
+    font-size: 1em; 
+    border: 1.5px solid rgb(0, 0, 0); 
+    border-radius: 10px;
+    background-color: #f8f8f8;
+    cursor: pointer; 
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+
+#file-input input {
+    margin-left: 1em;
+    width: 40%;
+}
+
 #recipe-ingredients {
     width: 20%;
 }
@@ -325,7 +356,10 @@ input#recipe-image{
 #courses-table{
     border-collapse: collapse;
     width: 60%;
+    color:black;
     box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
+    margin-top: 2em;
+    margin-bottom: 3em;
 }
 
 #courses-table th, 
