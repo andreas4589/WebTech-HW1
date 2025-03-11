@@ -315,12 +315,8 @@ input#recipe-image{
     cursor: pointer;
 }
 
-.personal{
-    display: block;
-}
-
 #member-photo{
-    width: 50%;
+    width: 30%;
 }
 
 #courses-table{

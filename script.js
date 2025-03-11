@@ -50,12 +50,12 @@ document.getElementById("file-input").addEventListener("change", function (e) {
         showMessage("No file selected. Please choose a file.", "error");
         return;
     }
-    /*
-    if (!file.type.endsWith(".JSON")) {
-        showMessage("Unsupported file type. Please select a .JSON file.", "error");
+    
+    if (!file.name.toLowerCase().endsWith(".json")) {
+        showMessage("Unsupported file type. Please select a .json file.", "error");
         return;
     }
-    */
+    
     // Read the file
     const reader = new FileReader();
     reader.onload = () => {
@@ -90,7 +90,7 @@ function displayMembers(members) {
     members.forEach(member => {
         // Create the member container
         let memberSection = document.createElement("section");
-        memberSection.class = "personal";
+        memberSection.className = "personal";
 
         // Create and append the name
         let name = document.createElement("h2");
