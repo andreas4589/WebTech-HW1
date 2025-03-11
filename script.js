@@ -135,6 +135,8 @@ function displayMember(member) {
         cell1.textContent = member.courses[i].title;
         cell2.textContent = member.courses[i].teacher.firstName + " " + member.courses[i].teacher.lastName;
         cell3.textContent = member.courses[i].description;
+        cell1.addEventListener("mouseover", add_tooltip)
+        cell1.addEventListener("mouseleave", remove_tooltip)
     }
     memberSection.appendChild(courses);
 
@@ -153,3 +155,18 @@ document.addEventListener("DOMContentLoaded", function () {
         fileInput();
     }
 });
+
+const remove_tooltip = (event) => {
+    if (event.target.childElementCount > 0) event.target.childNodes[0].remove();
+}
+const add_tooltip = (event) => {
+    let target = event.target;
+    let tip = tooltip_gen(target.nextElementSibling.nextElementSibling.textContent);
+    target.appendChild(tip);
+}
+const tooltip_gen = (text) => {
+    let div = document.createElement("div");
+    let span = document.createElement("span");
+    div.appendChild(span);
+    span.textContent = text;
+}

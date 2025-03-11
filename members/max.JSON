@@ -1,0 +1,30 @@
+[
+  {
+    "firstName": "Pieter-Jan Max",
+    "lastName": "Maes",
+    "age": 20,
+    "hobbies": ["Debating", "Reading", "Playing guitar", "Gym", "Eating"],
+    "email": "p.m.maes@uu.nl",
+    "photo": "pictures/Max.jpg",
+    "major": "Computer Science",
+    "courses": [
+      {
+        "title": "Web Technology",
+        "teacher": { "firstName": "Sergey", "lastName": "Sosnovsky" },
+        "description": "This course is about web technology."
+      }
+    ,
+      {
+        "title": "Algoritmiek",
+        "teacher": { "firstName": "Erik", "lastName": "van Leeuwen" },
+        "description": "This course concerns advanced algorithms"
+      }
+    ,
+      {
+        "title": "Software project",
+        "teacher": { "firstName": "Hieke", "lastName": "Keuning" },
+        "description": "This course is about developing a functional software product in a professional setting"
+      }
+    ]
+  }
+]
