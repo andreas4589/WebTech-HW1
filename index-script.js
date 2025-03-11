@@ -1,4 +1,3 @@
-
 var selectElem = document.getElementById("selectElem");
 
 const articles = document.querySelectorAll("article");
@@ -6,6 +5,8 @@ const sections = document.querySelectorAll("section");
 const body = document.querySelectorAll("body");
 
 let elements = [...body, ...articles, ...sections];
+
+let previousElems = []; // Houdt het vorige geselecteerde element bij
 
 function addElementSelector(){
 
@@ -35,13 +36,13 @@ function addElementSelector(){
 
         if(elem.id){
             createOption(elem.id, elem.tagName);
-        }else{
-            if(elem.className){
+        }
+        else if(elem.className){
                 createOption(elem.className, elem.tagName);
-            }else{
+            }
+            else{
                 createOption(elem.tagName.toLowerCase(), elem.tagName.toLowerCase());
             }
-        }
     }
 }
 
@@ -51,14 +52,24 @@ addElementSelector();
 let selectStyle = document.getElementById("selectStyle");
 selectElem.addEventListener("change", changeStyle, false);
 
+function resetPreviousStyles() {
+    for (let e of previousElems) {
+        e.style.fontSize = ""; // Reset font-size
+        e.style.color = ""; // Reset color
+    }
+    previousElems = []; // Leeg de array
+}
+
 function changeStyle(event){
     let selectedElem = selectElem.value;
     let selectedOption = event.target.selectedOptions[0].textContent;
 
     if(selectedElem === "") return;
 
+    // Reset de stijl van de vorige selectie
+    resetPreviousStyles();
 
-    elem = document.querySelectorAll(selectedElem);
+    let elem = document.querySelectorAll(selectedElem);
     
     for(let i in elem){
         e = elem[i];
@@ -78,6 +89,8 @@ function changeStyle(event){
                     e.style.color = "green";
                     break;
             }
+            // Voeg het element toe aan de lijst van aangepaste elementen
+            previousElems.push(e);
         }
     }
 
