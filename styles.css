@@ -8,6 +8,7 @@ h1{
     font-family: 'nyt-karnak', serif;
     color: #e22911e8;
 }
+
 h2{
     font-size: 2.3em;
     font-family: 'nyt-karnak', serif;
@@ -28,23 +29,26 @@ h4{
 }
 
 #cat-img{
-    size: 10%
+    size: 50%
 }
 
 header{
-    margin: 4em 20em;
-    text-align: center;
+    display: flex;
+    margin: 4em 20vw;
+    align-content: center;
+    justify-content: center;
     border: solid;
     border-radius: 1cm;
     border-color: grey;
     box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
+    background-image: url("pictures/cooking cat.jpg");  
+    background-size: 20%;
+    alt: "Cooking cat image";
+
 }
 
 .banner{
-    background-image: url("pictures/cooking cat.jpg");  
-    background-size: 50%;
-    alt: "Cooking cat image";
-    backdrop-filter: blur(3.5px);
+    backdrop-filter: blur(2.5px);
 }
 
 .introduction__catch-phrase{
@@ -66,8 +70,8 @@ body{
 }
 
 main{
-    margin: 5em 10em;
-    padding: 5em 10em;
+    margin: 5em 6em;
+    padding: 5em 2em;
     background-color: #f4f4f4;
     text-align: justify;
     box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
@@ -151,7 +155,6 @@ nav {
     padding: 0;
     margin: 0 1em;
     position: sticky;
-    top: 20px;
     border: black solid 1px;
     border-radius: 1em;
     box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
@@ -171,24 +174,28 @@ nav a:hover {
     color:#0077cc;
 }
 
+.recipe h2, .ingredients, .instructions {
+    text-align: left;;
+}
+
 .recipe-container {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 1.3em;
-    width: 80%;
+    gap: 1.0em;
+    width: 100%;
 }
 
 .recipe-img {
-    width: 50%;
+    width: 130%;
     border-radius: 0.7em;
     box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 2em;
 }
 
 .ingredients {
-    width: 40%;
-    list-style: none;
+    width: 100%;
+    list-style:inside;
     padding: 0;
 }
 
@@ -208,7 +215,8 @@ nav a:hover {
 }
 
 #nutrition {
-    width: 60%;
+    width: 70%;
+    font-size: 0.75em;
     margin: 1rem auto;
     border-collapse: collapse;
 }
@@ -265,7 +273,7 @@ nav a:hover {
 
 footer {
     background: linear-gradient(to top, #cecece86, #ffffff5d);
-    padding: 10px;
+    padding: 0.5em;
     text-align: center;
     border-top: 2px solid #ccc;
     font-family: Arial, sans-serif;
@@ -273,21 +281,21 @@ footer {
 
 footer label {
     font-weight: bold;
-    margin-right: 8px;
-    font-size: 10px;
+    margin-right: 0.6em;
+    font-size: 0.6em;
 }
 
 footer select {
-    padding: 4px;
-    margin: 5px;
+    padding: 0.5em;
+    margin: 0.5em;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 0.4em;
     cursor: pointer
 }
 
 footer p {
-    margin-top: 15px;
-    font-size: 12px;
+    margin-top: 1em;
+    font-size: 0.6em;
     color: #333;
 }
 
@@ -321,8 +329,8 @@ footer a:hover {
 }
 
 #darkModeToggle {
-    top: 20px;
-    right: 20px;
+    top: 1em;
+    right: 1em;
     font-size: 1em;
     cursor: pointer;
 }
@@ -356,8 +364,8 @@ input#recipe-image{
 
 #file-input {
     display: flex; 
-    margin: 25px auto; 
-    padding: 10px 10px; 
+    margin: 0.5em auto; 
+    padding: 0.5em 0.5em; 
     font-size: 1em; 
     border: 1.5px solid rgb(0, 0, 0); 
     border-radius: 10px;
@@ -412,6 +420,13 @@ input#recipe-image{
     color: white; 
 }
 
+#empty-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
 @media screen and (max-width: 1200px) {
 
     main{
@@ -444,7 +459,4 @@ input#recipe-image{
     html {
         font-size: 0.6em;
     }
-
-    
-
   }

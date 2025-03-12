@@ -10,27 +10,49 @@ document.getElementById("darkModeToggle").addEventListener("click", function () 
     document.body.classList.toggle("dark-mode");
 });
 
-function addRecipe(){
+function addRecipe() {
     document.getElementById("recipe-form").addEventListener("submit", function (event) {
         event.preventDefault();
+
         const title = document.getElementById("recipe-title").value;
         const image = document.getElementById("recipe-image").value || "default.jpg";
-        const ingredients = document.getElementById("recipe-ingredients").value.split(";");
+        const ingredients = document.getElementById("recipe-ingredients").value.split(";").map(ing => ing.trim());
         const instructions = document.getElementById("recipe-instructions").value;
 
         const newRecipe = { title, image, ingredients, instructions };
 
+        // Create a new recipe container
         const recipeContainer = document.getElementById("empty-container");
-        const recipeCard = document.createElement("div");
-        recipeCard.classList.add("recipe-card");
-        recipeCard.innerHTML = `
-            <h2>${newRecipe.title}</h2>
-            <img src="${newRecipe.image}" class="recipe-img" alt="${newRecipe.title}">
-            <h3>Ingredients:</h3>
-            <ul>${newRecipe.ingredients.map(ing => `<li>${ing.trim()}</li>`).join("")}</ul>
-            <h3>Instructions:</h3>
-            <p>${newRecipe.instructions}</p>`;
-        recipeContainer.appendChild(recipeCard);
+        const recipeAside = document.createElement("aside");
+        recipeAside.className = "recipe-container";
+
+        // Create image element
+        const recipeImg = document.createElement("img");
+        recipeImg.className = "recipe-img";
+        recipeImg.src = newRecipe.image;
+        recipeImg.alt = newRecipe.title;
+
+        // Create ingredients list
+        const ingredientsList = document.createElement("ul");
+        ingredientsList.className = "ingredients";
+        ingredientsList.innerHTML = `
+            <h3>Ingredients</h3>
+            ${newRecipe.ingredients.map(ing => `<li>${ing}</li>`).join("")}
+        `;
+
+        // Append elements to aside
+        recipeAside.appendChild(recipeImg);
+        recipeAside.appendChild(ingredientsList);
+
+
+        const instrList = document.createElement('ul');
+        instrList.innerHTML = `
+        <h3>Instructions</h3>
+        <p>${newRecipe.instructions}</p>`;
+        instrList.className = "instructions";
+        // Append new recipe to container
+        recipeContainer.appendChild(recipeAside);
+        recipeContainer.appendChild(instrList);
 
         // Reset form
         document.getElementById("recipe-form").reset();
