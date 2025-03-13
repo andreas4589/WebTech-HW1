@@ -29,7 +29,7 @@ h4{
 }
 
 #cat-img{
-    size: 50%
+    size: auto;
 }
 
 header{
@@ -426,6 +426,22 @@ input#recipe-image{
     gap: 20px;
 }
 
+
+.course-title .course-tooltip{
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+
+}
+.course-title:hover .course-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
 
 @media screen and (max-width: 1200px) {
 

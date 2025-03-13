@@ -133,33 +133,43 @@ function displayMember(member) {
         p.textContent = text;
         memberSection.appendChild(p);
     });
-
-    let courses = document.createElement("table");
-    courses.id = "courses-table";
-    let header = courses.createTHead();
-    let tr = document.createElement("tr");
-    let row = header.appendChild(tr);
-    let th1 = document.createElement("th");
-    let th2 = document.createElement("th");
-    let th3 = document.createElement("th");
-    let cell1 = row.appendChild(th1);
-    let cell2 = row.appendChild(th2);
-    let cell3 = row.appendChild(th3);
-    cell1.textContent = "Course Title";
-    cell2.textContent = "Teacher";
-    cell3.textContent = "Description";
-    let body = courses.createTBody();
+    let courses = document.createElement("div");
+    courses.id = "courses-div";
     for (let i = 0; i < member.courses.length; i++) {
-        let row = body.insertRow(i);
-        let cell1 = row.insertCell(0);
-        let cell2 = row.insertCell(1);
-        let cell3 = row.insertCell(2);
-        cell1.textContent = member.courses[i].title;
-        cell2.textContent = member.courses[i].teacher.firstName + " " + member.courses[i].teacher.lastName;
-        cell3.textContent = member.courses[i].description;
-        cell1.addEventListener("mouseover", add_tooltip)
-        cell1.addEventListener("mouseleave", remove_tooltip)
+        let currentCourse = courses.appendChild(document.createElement("div"));
+        currentCourse.classList.add("course-title");
+        currentCourse.textContent = `${member.courses[i].title}`;
+        let spanner = currentCourse.appendChild(document.createElement("span"));
+        spanner.classList.add("course-tooltip");
+        spanner.textContent = `${"Professor: "+ member.courses[i].teacher.firstName + " " + member.courses[i].teacher.lastName + "\n Description: " + member.courses[i].description}`;
     }
+
+    // let courses = document.createElement("table");
+    // courses.id = "courses-table";
+    // let header = courses.createTHead();
+    // let tr = document.createElement("tr");
+    // let row = header.appendChild(tr);
+    // let th1 = document.createElement("th");
+    // let th2 = document.createElement("th");
+    // let th3 = document.createElement("th");
+    // let cell1 = row.appendChild(th1);
+    // let cell2 = row.appendChild(th2);
+    // let cell3 = row.appendChild(th3);
+    // cell1.textContent = "Course Title";
+    // cell2.textContent = "Teacher";
+    // cell3.textContent = "Description";
+    // let body = courses.createTBody();
+    // for (let i = 0; i < member.courses.length; i++) {
+    //     let row = body.insertRow(i);
+    //     let cell1 = row.insertCell(0);
+    //     let cell2 = row.insertCell(1);
+    //     let cell3 = row.insertCell(2);
+    //     cell1.textContent = member.courses[i].title;
+    //     cell2.textContent = member.courses[i].teacher.firstName + " " + member.courses[i].teacher.lastName;
+    //     cell3.textContent = member.courses[i].description;
+    //     cell1.addEventListener("mouseover", add_tooltip)
+    //     cell1.addEventListener("mouseleave", remove_tooltip)
+    // }
     memberSection.appendChild(courses);
 
     // Append everything to the main content area
@@ -183,6 +193,7 @@ const remove_tooltip = (event) => {
 }
 const add_tooltip = (event) => {
     let target = event.target;
+    alert("Bla");
     let tip = tooltip_gen(target.nextElementSibling.nextElementSibling.textContent);
     target.appendChild(tip);
 }
