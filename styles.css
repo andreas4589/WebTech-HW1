@@ -39,12 +39,10 @@ header{
     box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
     background-image: url("pictures/cooking cat.jpg");  
     background-size: 20%;
-    /*alt: "Cooking cat image";     alt doesn't exist in CSS. We can remove it, the image is just decorative*/
-
 }
 
 .banner{
-    backdrop-filter: blur(2.5px);
+    backdrop-filter: blur(1.5px);
 }
 
 .introduction__catch-phrase{
@@ -66,8 +64,8 @@ body{
 }
 
 main{
-    margin: 5em 6em;
-    padding: 5em 2em;
+    margin: 1em 6em;
+    padding: 1em 6em;
     background-color: #f4f4f4;
     text-align: justify;
     box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
@@ -143,14 +141,14 @@ main{
 
 nav {
     background: #ffffffdb;
-    padding: 0.8em 0;
+    padding: 0.8em 1;
     display: flex;
+    position: sticky;
+    top: 20px;
     align-content: space-between;
     justify-content: center;
     list-style: none;
-    padding: 0;
     margin: 0 1em;
-    position: sticky;
     border: black solid 1px;
     border-radius: 1em;
     box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
@@ -308,20 +306,7 @@ footer a:hover {
 .dark-mode {
     background-color: #333;
     color: white;
-    main{
-        background-color: #5e5e5e;
-    }
-    .personal p {
-        color: rgb(2, 141, 2);
-    }
-
-    #file-input{
-        color:rgb(0, 0, 0);
-    }
-
-    h3{
-        color: rgb(228, 9, 9)
-    }
+    
 }
 
 #darkModeToggle {
@@ -337,15 +322,18 @@ footer a:hover {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: 1em 0 6em;
+    margin: 1em 0 2em;
 }
 
 .change-style-menu {
-    padding: 2em 0em 8em;
-    border-top-style: solid;
-    border-top-color: #494949;
+    padding: 0.2em 0em 0.2em;
     width: 70%;
     margin: auto;
+}
+
+.change-style-menu h2, #add-recipe h2{
+    margin-top: 0; /* Remove or reduce top margin */
+    margin-bottom: 0.2em; /* Adjust bottom margin */
 }
 
 .recipe-input {

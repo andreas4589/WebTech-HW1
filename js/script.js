@@ -8,7 +8,7 @@ const messageDisplay = document.getElementById("message");
 document.getElementById("darkModeToggle").addEventListener("click", function () {
     console.log("Dark mode toggled");
     document.body.classList.toggle("dark-mode");
-    /* add this code an delete .dark-mode in CSS file to not have the error from the validator:
+    
     document.querySelector("main").style.background = "#5e5e5e";
     document.style.background = "#333";
 
@@ -29,7 +29,7 @@ document.getElementById("darkModeToggle").addEventListener("click", function () 
     for (let i in h3){
         h3[i].style.color = "rgb(228, 9, 9)";
     }
-    */
+    
 
     
 });
