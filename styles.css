@@ -303,11 +303,6 @@ footer a:hover {
     text-decoration: underline;
 }
 
-.dark-mode {
-    background-color: #333;
-    color: white;
-    
-}
 
 #darkModeToggle {
     top: 1em;
