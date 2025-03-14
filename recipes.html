@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" type="module"></script>
+    <script src="js/script.js" type="module"></script>
+    <script src="js/change-style-element.js" defer></script>
 </head>
 <body>
     <button id="darkModeToggle">🌙 Dark Mode</button>
@@ -19,6 +20,7 @@
         <a href= #bf-chicken>Buffalo Chicken Grilled Cheese</a>
         <a href= #ch-flor>Chicken Florentine Pasta</a>
         <a href= #add-recipe> Add your own recipes</a>
+        <a href= .change-style-menu>Custom the webpage</a>
     </nav>
     <hr>
     <main class = "recipe">
@@ -26,7 +28,8 @@
         <h3 >The best way to make basic French toast, using only pantry staples.</h3>
         <h4 >By Daniel Gritzer</h4>
         <aside class="recipe-container">
-            <img class="recipe-img" src="pictures/french toast.jpg" alt="french toast">
+            <img class="recipe-img" src="pictures/french-toast.jpg" alt="french toast">
+            <h3>Ingredients</h3>
             <ul class="ingredients">
                 <h3>Ingredients</h3>
                 <li>Eight (1/2-inch thick) slices white bread</li>
@@ -84,7 +87,7 @@
         <h2 id = "bf-chicken">Buffalo Chicken Grilled Cheese</h2>
         <h4>By Candace Braun Davison</h4>
         <aside class="recipe-container">
-            <img class="recipe-img" src="pictures/grilled cheese.jpg" alt="grilled cheese">
+            <img class="recipe-img" src="pictures/grilled-cheese.jpg" alt="grilled cheese">
             <ul class="ingredients">
                 <h3>Ingredients</h3>
                 <li>2 cups rotisserie chicken, shredded</li>
@@ -106,7 +109,7 @@
         <h2 id = "ch-flor">Chicken Florentine Pasta</h2>
         <h4>By Lauren Miyashiro</h4>
         <aside class="recipe-container">
-            <img class="recipe-img" src="pictures/chicken florentine.jpg" alt="chicken florentine">
+            <img class="recipe-img" src="pictures/chicken-florentine.jpg" alt="chicken florentine">
             <ul class="ingredients">
                 <h3>Ingredients</h3>
                 <li>12 oz. penne</li>    
@@ -139,14 +142,35 @@
         </aside>
     </main>
     <hr>
-    <h2 id="add-recipe">Add a Recipe</h2>
-    <p>Share your favorite recipe with us!</p>
-    <form id="recipe-form">
-        <input type="text" id="recipe-title" class="recipe-input" placeholder="Recipe Title" required>
-        <input type="text" id="recipe-image" class="recipe-input" accept="image/*" placeholder="Image URL">
-        <textarea id="recipe-ingredients" class="recipe-input" placeholder="Ingredients (semicolon separated)" required></textarea>
-        <textarea id="recipe-instructions" class="recipe-input" placeholder="Instructions" required></textarea>
-        <button type="submit" id="submit-recipe" class="recipe-input">Add Recipe</button>
-    </form>
+    <footer>
+        <section id="add-recipe">
+            <h2>Add a Recipe</h2>
+            <p>Share your favorite recipe with us!</p>
+            <form id="recipe-form">
+                <input type="text" id="recipe-title" class="recipe-input" placeholder="Recipe Title" required>
+                <input type="text" id="recipe-image" class="recipe-input" accept="image/*" placeholder="Image URL">
+                <textarea id="recipe-ingredients" class="recipe-input" placeholder="Ingredients (semicolon separated)" required></textarea>
+                <textarea id="recipe-instructions" class="recipe-input" placeholder="Instructions" required></textarea>
+                <button type="submit" id="submit-recipe" class="recipe-input">Add Recipe</button>
+            </form>
+        </section>
+
+        <section class="change-style-menu">
+            <h2>Change the style of an element:</h2>
+            <label for="selectElem">Select an element within the page:</label>
+            <select name="elements" id="selectElem">
+              <option value="">--choose an element--</option>
+            </select>
+      
+            <label for="selectStyle">Change appearance:</label>
+            <select name="styles" id="selectStyle">
+              <option value="">--choose an appearance--</option>
+              <option value="size-1">font size 1</option>
+              <option value="size-2">font size 2</option>
+              <option value="color-blue">font color blue</option>
+              <option value="color-green">font color green</option>
+            </select>
+        </section>
+    </footer>
   </body>
 </html>

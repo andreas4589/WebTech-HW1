@@ -28,10 +28,6 @@ h4{
     color: initial;
 }
 
-#cat-img{
-    size: auto;
-}
-
 header{
     display: flex;
     margin: 4em 20vw;
@@ -43,7 +39,7 @@ header{
     box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
     background-image: url("pictures/cooking cat.jpg");  
     background-size: 20%;
-    alt: "Cooking cat image";
+    /*alt: "Cooking cat image";     alt doesn't exist in CSS. We can remove it, the image is just decorative*/
 
 }
 
@@ -341,7 +337,15 @@ footer a:hover {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: 1em 0;
+    margin: 1em 0 6em;
+}
+
+.change-style-menu {
+    padding: 2em 0em 8em;
+    border-top-style: solid;
+    border-top-color: #494949;
+    width: 70%;
+    margin: auto;
 }
 
 .recipe-input {

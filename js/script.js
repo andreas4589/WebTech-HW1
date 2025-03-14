@@ -8,6 +8,30 @@ const messageDisplay = document.getElementById("message");
 document.getElementById("darkModeToggle").addEventListener("click", function () {
     console.log("Dark mode toggled");
     document.body.classList.toggle("dark-mode");
+    /* add this code an delete .dark-mode in CSS file to not have the error from the validator:
+    document.querySelector("main").style.background = "#5e5e5e";
+    document.style.background = "#333";
+
+    document.style.color = "white";
+
+    let personal = document.getElementsByClassName(personal);
+    let p = personal.querySelectorAll(p);
+    for (let i in p){
+        p[i].style.color = "rgb(2, 141, 2)";
+    }
+
+    let fileInput = document.getElementById("file-input");
+    for (let i in fileInput){
+        fileInput[i].style.color = "rgb(0, 0, 0)";
+    }
+
+    let h3 = this.querySelectorAll("h3");
+    for (let i in h3){
+        h3[i].style.color = "rgb(228, 9, 9)";
+    }
+    */
+
+    
 });
 
 function addRecipe() {

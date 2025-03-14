@@ -6,8 +6,7 @@
     <meta name="description" content="Welcome to our cooking blog. If your looking for the bests recipes on the internet, you came to the right place">
     <title>Web for Cooking</title>
     <link rel="stylesheet" href="styles.css" type="text/css">
-    <!--<script src="script.js" type="module" ></script>-->
-    <script src="index-script.js" defer></script>
+    <script src="js/change-style-element.js" defer></script>
   </head>
   <body>
     <button id="darkModeToggle">🌙 Dark Mode</button>
@@ -21,9 +20,9 @@
     </nav>
     <main>
       <section class="introduction">
-          <p class="introduction__catch-phrase">
+          <h2 class="introduction__catch-phrase">
             Welcome to web for cooking — a journey through flavors and history.
-          </p>
+          </h2>
           <p class="introduction__text">
             Cooking is more than just making meals — it's a story told through ingredients, flavors and traditions.
             At web for cooking, we explore the rich history behind the ingredients you use every day while sharing delicious recipes that bring them to life.
@@ -157,19 +156,22 @@
     </main>
 
     <footer>
-      <label for="selectElem">Select an element within the page:</label>
-      <select name="elements" id="selectElem">
-        <option value="">--choose an element--</option>
-      </select>
-
-      <label for="selectStyle">Change appearance:</label>
-      <select name="styles" id="selectStyle">
-        <option value="">--choose an appearance--</option>
-        <option value="size-1">font size 1</option>
-        <option value="size-2">font size 2</option>
-        <option value="color-blue">font color blue</option>
-        <option value="color-green">font color green</option>
-      </select>
+      <section class="change-style-menu">
+        <h2>Change the style of an element:</h2>
+        <label for="selectElem">Select an element within the page:</label>
+        <select name="elements" id="selectElem">
+          <option value="">--choose an element--</option>
+        </select>
+  
+        <label for="selectStyle">Change appearance:</label>
+        <select name="styles" id="selectStyle">
+          <option value="">--choose an appearance--</option>
+          <option value="size-1">font size 1</option>
+          <option value="size-2">font size 2</option>
+          <option value="color-blue">font color blue</option>
+          <option value="color-green">font color green</option>
+        </select>
+    </section>
 
       <p>
         This website was created by three genuises students.
