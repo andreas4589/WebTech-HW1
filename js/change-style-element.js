@@ -111,5 +111,4 @@ function changeStyle(event){
             previousElems.push(e);
         }
     }
-
 }

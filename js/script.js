@@ -4,31 +4,52 @@ import { Student } from "./student.js";
 
 const fileContentDisplay = document.getElementsByClassName("file-content");
 const messageDisplay = document.getElementById("message");
+var darkModeSwitch = -1;
 
 document.getElementById("darkModeToggle").addEventListener("click", function () {
-    console.log("Dark mode toggled");
-    //document.body.classList.toggle("dark-mode");
-    
-    document.querySelector("main").style.background = "#5e5e5e";
-    document.querySelector("body").style.background = "#333";
+    darkModeSwitch *= -1;
 
-    document.querySelector("body").style.color = "white";
+    if (darkModeSwitch == 1)
+    {
+        document.querySelector("main").style.background = "#5e5e5e";
+        document.querySelector("body").style.background = "#333";
 
-    let personal = document.getElementsByClassName("personal");
-    if(personal){
-        personal.style = "pink";
+        document.querySelector("body").style.color = "white";
+
+        let personal = document.getElementsByClassName("personal");
+        if(personal){
+            personal.style = "pink";
+        }
+
+
+        let  fileInput = document.getElementById("file-input");
+        if(fileInput){
+            fileInput.style.background = "black";
+        }
+
+        document.querySelectorAll("h3").style = "rgb(228, 9, 9)";
     }
 
+    else
+    {
+        document.querySelector("main").style.background = "#f4f4f4";
+        document.querySelector("body").style.background = "#f1ead7c5";
 
-    let  fileInput = document.getElementById("file-input");
-    if(fileInput){
-        fileInput.style.background = "black";
+        document.querySelector("body").style.color = "black";
+
+        let personal = document.getElementsByClassName("personal");
+        if(personal){
+            personal.style = "darkgreen";
+        }
+
+
+        let  fileInput = document.getElementById("file-input");
+        if(fileInput){
+            fileInput.style.background = "#f8f8f8";
+        }
+
+        document.querySelectorAll("h3").style = "rgb(151, 51, 38)";
     }
-
-    document.querySelectorAll("h3").style = "rgb(228, 9, 9)";
-    
-
-    
 });
 
 function addRecipe() {
@@ -154,6 +175,7 @@ function displayMember(member) {
         p.textContent = text;
         memberSection.appendChild(p);
     });
+    
     let courses = document.createElement("div");
     courses.id = "courses-div";
     for (let i = 0; i < member.courses.length; i++) {
@@ -165,37 +187,10 @@ function displayMember(member) {
         spanner.textContent = `${"Professor: "+ member.courses[i].teacher.firstName + " " + member.courses[i].teacher.lastName + "\n Description: " + member.courses[i].description}`;
     }
 
-    // let courses = document.createElement("table");
-    // courses.id = "courses-table";
-    // let header = courses.createTHead();
-    // let tr = document.createElement("tr");
-    // let row = header.appendChild(tr);
-    // let th1 = document.createElement("th");
-    // let th2 = document.createElement("th");
-    // let th3 = document.createElement("th");
-    // let cell1 = row.appendChild(th1);
-    // let cell2 = row.appendChild(th2);
-    // let cell3 = row.appendChild(th3);
-    // cell1.textContent = "Course Title";
-    // cell2.textContent = "Teacher";
-    // cell3.textContent = "Description";
-    // let body = courses.createTBody();
-    // for (let i = 0; i < member.courses.length; i++) {
-    //     let row = body.insertRow(i);
-    //     let cell1 = row.insertCell(0);
-    //     let cell2 = row.insertCell(1);
-    //     let cell3 = row.insertCell(2);
-    //     cell1.textContent = member.courses[i].title;
-    //     cell2.textContent = member.courses[i].teacher.firstName + " " + member.courses[i].teacher.lastName;
-    //     cell3.textContent = member.courses[i].description;
-    //     cell1.addEventListener("mouseover", add_tooltip)
-    //     cell1.addEventListener("mouseleave", remove_tooltip)
-    // }
     memberSection.appendChild(courses);
 
     // Append everything to the main content area
     content.appendChild(memberSection);
-    
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -212,12 +207,14 @@ document.addEventListener("DOMContentLoaded", function () {
 const remove_tooltip = (event) => {
     if (event.target.childElementCount > 0) event.target.childNodes[0].remove();
 }
+
 const add_tooltip = (event) => {
     let target = event.target;
     alert("Bla");
     let tip = tooltip_gen(target.nextElementSibling.nextElementSibling.textContent);
     target.appendChild(tip);
 }
+
 const tooltip_gen = (text) => {
     let div = document.createElement("div");
     let span = document.createElement("span");
