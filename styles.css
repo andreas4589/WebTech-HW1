@@ -451,7 +451,13 @@ input#recipe-image{
     outline: none; /* Remove default outline */
 }
 
-#login-container button {
+#login-container a {
+    font-weight: bold;
+    text-decoration: none; /* Remove underline */
+    width: 40%;
+}
+
+.button-style {
     background-color: #b32d1b;
     width: 65%;
     color: white;
@@ -464,8 +470,13 @@ input#recipe-image{
     transition: background-color 0.3s ease; /* Smooth transition for hover */
 }
 
-#login-container button:hover {
+.button-style:hover {
     background-color: #9e1010; /* Darker shade on hover */
+}
+
+.button-style a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* White text color */
 }
 
 #login-container label {
