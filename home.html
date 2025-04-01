@@ -18,7 +18,71 @@
       <a href="index.html">Home</a>
       <a href="about-us.html">About us</a>
       <a href="recipes.html">Recipes</a>
+      <menu class = "dropdown">
+      <button id = "profile-button">
+        <img src="pictures/profile.jpg" alt="profile picture" width="32" height="32">
+      </button>
+      <div class="dropdown-content">
+        <a href="#" data-modal="profile">Edit Profile</a>
+        <a href="#" data-modal="courses">Courses</a>
+        <a href="#" data-modal="friends">Friends</a>
+        <a href="#" data-modal="messages">Messages</a>
+      </div>
+      </menu>
     </nav>
+    <!-- Modal -->
+    <div id="modal" class="modal-overlay">
+      <div class="modal-content">
+        <div id="modal-profile" class="modal-section">
+          <h2>Edit Profile</h2>
+          <form action="login.php" method="post">
+            <label for="name">First & Lastname:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" required>
+            <label for="email">E-mail address:</label>
+            <input type="text" id="email" name="email" required>
+            <label for="photo">Photo:</label>
+            <input type="text" id="photo" name="photo" required>
+            <label for="program">Program / Major:</label>
+            <select name="program" id="program" required>
+                <option value="Select">Select your Major</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Physics">Physics</option>
+                <option value="Biology">Biology</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Engineering">Engineering</option>
+            </select>
+            <label for="hobbies">Hobbies:</label>
+            <input type="text" id="hobbies" name="hobbies" required>
+            <label for="courses">Courses:</label>
+            <select name="courses" id="courses" required>
+                <option value="Select">Select your Major</option>
+                <option value="Select">Web Technology</option>
+            </select>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button class="button-style">Complete</button>
+        </form>
+        </div>
+        <div id="modal-courses" class="modal-section">
+          <h2>Courses</h2>
+          <p>List of user courses goes here.</p>
+        </div>
+        <div id="modal-friends" class="modal-section">
+          <h2>Friends</h2>
+          <p>List of friends and friend requests.</p>
+        </div>
+        <div id="modal-messages" class="modal-section">
+          <h2>Messages</h2>
+          <p>Messaging interface here.</p>
+        </div>
+        <button class="button-style" id="close-modal">Close</button>
+      </div>
+    </div>
+
     <main>
       <section class="introduction">
           <h2 class="introduction__catch-phrase">

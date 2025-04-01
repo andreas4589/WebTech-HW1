@@ -37,7 +37,7 @@ header{
     border-radius: 1cm;
     border-color: grey;
     box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
-    background-image: url("pictures/cooking cat.jpg");  
+    background-image: url("pictures/cooking-cat.jpg");  
     background-size: 20%;
 }
 
@@ -493,7 +493,108 @@ input#recipe-image{
     text-align: center;
 }
 
+#profile-button{
+    all: unset;
+    cursor: pointer;
+}
 
+#profile-button img{
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);              
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Menu styles (optional) */
+.menu a {
+    display: inline-block;
+    margin: 0.5em;
+    padding: 0.5em 1em;
+    background: #007bff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Modal styles */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 70%;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Hide all modal sections by default */
+  .modal-section {
+    display: none;
+  }
+  
+  /* Show active modal section */
+  .modal-section.active {
+    display: block;
+  }
+  
+  #modal-profile form {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    gap: 1em;
+    justify-items: start;
+    margin-bottom: 1em;
+
+    
+  }
 
 @media screen and (max-width: 1200px) {
 

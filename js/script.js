@@ -221,3 +221,38 @@ const tooltip_gen = (text) => {
     div.appendChild(span);
     span.textContent = text;
 }
+
+const modal = document.getElementById("modal");
+const modalSections = document.querySelectorAll(".modal-section");
+const openLinks = document.querySelectorAll("[data-modal]");
+const closeBtn = document.getElementById("close-modal");
+
+// Open specific modal section
+openLinks.forEach(link => {
+link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = link.getAttribute("data-modal");
+
+        modalSections.forEach(section => {
+        section.classList.remove("active");
+        });
+
+        const activeSection = document.getElementById("modal-" + target);
+        if (activeSection) {
+        activeSection.classList.add("active");
+        modal.style.display = "flex";
+        }
+    });
+});
+
+// Close modal
+closeBtn.addEventListener("click", () => {
+modal.style.display = "none";
+});
+
+// Close modal when clicking outside
+window.addEventListener("click", (e) => {
+if (e.target === modal) {
+    modal.style.display = "none";
+}
+});
