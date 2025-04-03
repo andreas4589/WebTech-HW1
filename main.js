@@ -2,46 +2,23 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const express = require('express');
+const app = express();
 
 const PORT = 8038;
 const HOST = 'localhost';
 
-const server = http.createServer((req, res) => {
-  let filePath = './public' + req.url;
-  if (filePath === './public/') {
-    filePath = './public/index.html';
-  }
 
-  const extname = String(path.extname(filePath)).toLowerCase();
-  const mimeTypes = {
-    '.html': 'text/html',
-    '.js': 'application/javascript',
-    '.css': 'text/css',
-    '.json': 'application/json',
-    '.png': 'image/png',
-    '.jpg': 'image/jpg',
-    '.gif': 'image/gif',
-    '.ico': 'image/x-icon'
-  };
-
-  const contentType = mimeTypes[extname] || 'application/octet-stream';
-
-  fs.readFile(filePath, function(error, content) {
-    if (error) {
-      if (error.code == 'ENOENT') {
-        res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.end('<h1>404 Not Found</h1>', 'utf-8');
-      } else {
-        res.writeHead(500);
-        res.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
-      }
-    } else {
-      res.writeHead(200, { 'Content-Type': contentType });
-      res.end(content, 'utf-8');
-    }
-  });
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
 });
 
-server.listen(PORT, HOST, () => {
-  console.log(`Server running at http://${HOST}:${PORT}/`);
+app.get('/style.css', function(req, res) {
+  res.sendFile(__dirname + "/public/style.css");
+});
+
+
+
+app.listen(PORT, () => {
+  console.log('Server is running on http://localhost:' + PORT );
 });
