@@ -11,37 +11,32 @@
     <header>
         <h1>Web For Cooking</h1>
     </header>
-    <form action="login.php" method="post" id="login-container">
+    <form action="/register" method="post" id="login-container">
         <h2>Register to access the website</h2>
-        <label for="name">First & Lastname:</label>
-        <input type="text" id="name" name="name" required>
+        <label for="firstName">First name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        <label for="lastName">First name:</label>
+        <input type="text" id="lastName" name="lastName" required>
         <label for="age">Age:</label>
         <input type="text" id="age" name="age" required>
         <label for="email">E-mail address:</label>
         <input type="text" id="email" name="email" required>
         <label for="photo">Photo:</label>
-        <input type="text" id="photo" name="photo" required>
+        <input type="text" id="photo" name="photo">
         <label for="program">Program / Major:</label>
-        <select name="program" id="program" required>
-            <option value="Select">Select your Major</option>
-            <option value="Computer Science">Computer Science</option>
-            <option value="Artificial Intelligence">Artificial Intelligence</option>
-            <option value="Mathematics">Mathematics</option>
-            <option value="Physics">Physics</option>
-            <option value="Biology">Biology</option>
-            <option value="Chemistry">Chemistry</option>
-            <option value="Engineering">Engineering</option>
-        </select>
+        <input type="text" id="program" name="program">
         <label for="hobbies">Hobbies:</label>
         <input type="text" id="hobbies" name="hobbies" required>
         <label for="courses">Courses:</label>
         <select name="courses" id="courses" required>
             <option value="Select">Select your Major</option>
-            <option value="Select">Web Technology</option>
+            <% for (var i = 0; i < coursesList.length; i++) { %>
+            <option><%= coursesList[i] %></option>
+            <% } %>
         </select>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
-        <button class="button-style" onclick="window.location.href = 'home.html'"">Register</button>
+        <button class="button-style" type="submit">Register</button>
     </form>
 </body>
 </html>
