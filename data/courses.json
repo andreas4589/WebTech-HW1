@@ -1,0 +1,20 @@
+{
+  "courses" : [
+    {
+      "name"
+    : "Web technology"
+    },
+    {
+      "name"
+      : "Software testing"
+    },
+    {
+      "name"
+      : "Security"
+    },
+    {
+      "name"
+      : "History"
+    }
+  ]
+}
