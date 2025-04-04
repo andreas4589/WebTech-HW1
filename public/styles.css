@@ -589,11 +589,13 @@ input#recipe-image{
     align-items: center;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(4, auto);
-    gap: 1em;
+    gap: 0.5em;
     justify-items: start;
     margin-bottom: 1em;
+  }
 
-    
+  #modal-profile form > * {
+    width: 90%;
   }
 
 @media screen and (max-width: 1200px) {
