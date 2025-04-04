@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const {db} = require("./database");
+const cookieParser = require('cookie-parser');
 
 
 
@@ -10,6 +11,7 @@ router.post("/", (req, res) => {
         if (result !== undefined) { res.send("You already have an account pls login"); }
         else {
             db.run('INSERT INTO users (firstName, lastName, password, email, major, age) VALUES (?, ?, ?, ?, ?, ?)', [firstName, lastName, password, email, major, age]);
+            req.session.user = req.body.email;
             res.send( "inserted person with name: " + firstName);
         }
     });

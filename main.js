@@ -1,17 +1,16 @@
 #!/usr/bin/node
-const http = require('http');
-const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const app = express();
 const users = require('./users');
-const sqlite3 = require('sqlite3').verbose();
 const {db} = require("./database");
-const coursesFile = require('./data/courses.json');
 const PORT = 8038;
-const HOST = 'localhost';
+const session = require("express-session")
+const options = {secret: "Not so very secret"}
 
 app.set('view engine', 'ejs');
+
+app.use(session(options));
 
 app.set('views', path.join(__dirname, 'views'));
 
