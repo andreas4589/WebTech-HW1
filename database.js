@@ -1,7 +1,13 @@
+
+const fs = require('fs');
+const path = require('path');
+const express = require('express');
+const app = express();
+const users = require('./users');
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database(':memory:');
-const fs = require('fs');
-const coursesFile = require('./data/courses.json');
+
+
 
 db.serialize(() => {
     db.run('CREATE TABLE users (firstName TEXT, lastName TEXT, password TEXT, email TEXT, major TEXT, age NUMERIC)');
@@ -11,7 +17,7 @@ db.serialize(() => {
 
 });
 
-fs.readFile('./data/courses.json', 'utf8', (err, jsonString) => {
+fs.readFile("./data/courses.json", 'utf8', (err, jsonString) => {
     if (err) {
         console.log("Courses read failed:", err)
         return
@@ -22,31 +28,4 @@ fs.readFile('./data/courses.json', 'utf8', (err, jsonString) => {
     }
 })
 
-function registerUser(person){
-    db.get("SELECT * FROM users WHERE email = ?", [person.email], (err, result) => {
-        if (result === null) { return err.message; }
-        else {
-            db.run('INSERT INTO users (firstName, lastName, password, email, major, age) VALUES (?, ?, ?, ?, ?, ?)', [person.firstName, person.lastName, person.password, person.email, person.major, person.age]);
-            return "inserted person with name: " + person.firstName;
-        }
-    });
-}
-
-function getUsers(callback) {
-    db.all('SELECT * FROM users', callback);
-}
-
-function getCourses(callback) {
-    db.all('SELECT * FROM courses', (err, rows) => {
-        if (err) {
-            return callback(err);
-        }
-        else {
-            const data = rows.map(obj => obj.name);
-            callback(err, data);
-        }
-    });
-}
-
-module.exports = {registerUser, getUsers, getCourses};
-
+module.exports = {db}

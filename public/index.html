@@ -11,14 +11,14 @@
     <header>
         <h1>Web For Cooking</h1>
     </header>
-    <form action="login.php" method="post" id="login-container">
+    <form action="/users/authentication/login" method="post" id="login-container">
         <h2>Login</h2>
         <label for="email">E-mail address:</label>
         <input type="text" id="email" name="email" required>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
         <button type="submit" class="button-style">Login</button>
-        <button class="button-style" onclick="window.location.href = 'register.html'"">Register</button>
+        <button class="button-style" onclick="window.location.href = 'register.html'">Register</button>
     </form>
 </body>
 </html>
