@@ -15,7 +15,7 @@
         <h2>Register to access the website</h2>
         <label for="firstName">First name:</label>
         <input type="text" id="firstName" name="firstName" required>
-        <label for="lastName">First name:</label>
+        <label for="lastName">Last name:</label>
         <input type="text" id="lastName" name="lastName" required>
         <label for="age">Age:</label>
         <input type="text" id="age" name="age" required>
@@ -24,16 +24,32 @@
         <label for="photo">Photo:</label>
         <input type="text" id="photo" name="photo">
         <label for="program">Program / Major:</label>
-        <input type="text" id="program" name="program">
+        <select name="program" id="program" multiple size="5">
+            <option value="Computer Science">Computer Science</option>
+            <option value="Artificial Intelligence">Artificial Intelligence</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Physics">Physics</option>
+            <option value="Biology">Biology</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Engineering">Engineering</option>
+        </select>
         <label for="hobbies">Hobbies:</label>
         <input type="text" id="hobbies" name="hobbies" required>
         <label for="courses">Courses:</label>
-        <select name="courses" id="courses" required>
-            <option value="Select">Select your Major</option>
-            <% for (var i = 0; i < coursesList.length; i++) { %>
-            <option><%= coursesList[i] %></option>
-            <% } %>
-        </select>
+        <select id="courses" name="courses" multiple size="5">
+            <option value="INFOSP">Informatica Softwareproject</option>
+            <option value="INFODB">Databases</option>
+            <option value="INFOFP">Functioneel Programmeren</option>
+            <option value="INFOB3OMI">Onderzoeksmethoden voor Informatica</option>
+            <option value="INFOB3ML">Machine Learning</option>
+            <option value="INFOB3SEC">Security</option>
+            <option value="INFOB2CI">Computationele Intelligentie</option>
+            <option value="INFOAL">Algoritmiek</option>
+            <option value="INFOB3DW">Discrete Wiskunde</option>
+            <option value="INFOB3IS">Intelligente Systemen</option>
+            <option value="INFOB2WT">Webtechnologie</option>
+            <option value="INFOB3STV">Software Testing en Verificatie</option>
+          </select>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
         <button class="button-style" type="submit">Register</button>
