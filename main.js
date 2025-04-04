@@ -20,6 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/users", users);
 
+app.use(express.static('public'));
+
 
 app.get('/usersDebug', (req, res) => {
   db.all("SELECT * FROM users", function (err, rows) {
