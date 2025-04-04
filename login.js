@@ -10,7 +10,7 @@ router.post("/", function (req, res) {
         if (result === undefined) {res.send("Wrong email or password");}
         else {
             req.session.user = req.body.email;
-            res.send("Correct login");
+            res.redirect( "/users/home/" + req.body.email);
         }
     })
 })
