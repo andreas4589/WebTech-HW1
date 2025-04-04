@@ -1,11 +1,10 @@
-
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const app = express();
 const users = require('./users');
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database(':memory:');
+const db = new sqlite3.Database(path.join(__dirname, 'mydatabase.db'));
 
 
 
