@@ -18,6 +18,15 @@ router.get("/home/:userid", function (req, res) {
     }
 })
 
+router.get("/profile/:userid", function (req, res) {
+    if(req.session.user){
+        db.get("SELECT * FROM friends WHERE user_email == ?, friend_email == ?", [req.session.user, req.params.userid], function (err, result) {
+            if (result !== undefined) { res.send("You are friends and therefore allowed to view this page"); }
+            else {res.send("Not Found");}
+        })
+    }
+})
+
 
 
 module.exports = router;
