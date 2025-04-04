@@ -10,7 +10,10 @@ router.use("/authentication/register", register);
 router.get("/home/:userid", function (req, res) {
     if(req.session.user && req.session.user == req.params.userid) {
         db.get("SELECT firstName, lastName FROM users WHERE email = ?", [req.params.userid], function (err, result) {
-            res.send(result);
+            res.render("user_home", {
+                firstname: result.firstName,
+                lastname: result.lastName,
+            });
         })
     }
     else{

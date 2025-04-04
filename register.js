@@ -12,7 +12,7 @@ router.post("/", (req, res) => {
         else {
             db.run('INSERT INTO users (firstName, lastName, password, email, major, age) VALUES (?, ?, ?, ?, ?, ?)', [firstName, lastName, password, email, major, age]);
             req.session.user = req.body.email;
-            res.send( "inserted person with name: " + firstName);
+            res.redirect( "/users/home/" + email);
         }
     });
 })

@@ -14,7 +14,8 @@ db.serialize(() => {
     db.run('CREATE TABLE courses (name TEXT)')
     db.run('CREATE TABLE user_courses (user_email TEXT, course_name TEXT)')
     db.run('CREATE TABLE friends (user_email TEXT, friend_email TEXT)')
-
+    db.run('CREATE TABLE messages (sender TEXT, recipient TEXT, message TEXT)')
+    db.run('CREATE TABLE friend_requests (sender TEXT, recipient TEXT)')
 });
 
 fs.readFile("./data/courses.json", 'utf8', (err, jsonString) => {
