@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/script.js" type="module"></script>
+</head>
+<body>
+    <button id="darkModeToggle">🌙 Dark Mode</button>
+    <header>      
+        <h1 class="banner">Message box</h1>
+    </header>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about-us.html">About us</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="recipes.html">Send a message</a>
+    </nav>
+
+    <main>
+        <h2>messages history</h2>
+        <p>
+            Hello <%=name%>.
+            Here you can find all of the messages you received from your friends.
+        </p>
+
+        <section id="message-box">
+            <% if (messages_list.length==0) { %>
+                <p>Your haven't received any messages...</p>
+            <% }else{ %>
+                <p>hello</p>
+                <% for(var i=0 ; i < messages_list.length ; i++) { %>
+                    <section id="messages-container">
+                        <article class="message">
+                            <p class="message__sender"><%= messages_list[i].firstName %> <%= messages_list[i].lastName %></p>
+                            <br>
+                            <p class="message__content"><%= messages_list[i].message %></p>
+                            <br>
+                            <form action="/users/write-message/<%=message_list[i].email%>" method="get">
+                                <button type="submit">Reply to <%= messages_list[i].firstName %></button>
+                            </form>
+                        </article>
+                    </section>
+                <% } %>
+            <% } %>
+        </section>
+
+        <a href="/users/write-message">
+            <button type="button">send or reply to one of your friends</button>
+        </a>
+
+    </main>
+
+</body>
+</html>

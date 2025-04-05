@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/script.js" type="module"></script>
+</head>
+<body>
+    <button id="darkModeToggle">🌙 Dark Mode</button>
+    <header>      
+        <h1 class="banner">Message box</h1>
+    </header>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about-us.html">About us</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="message-box">check your messages</a>
+    </nav>
+
+    <main>
+        <h2>Write a message</h2>
+        <p>
+            Hello <%=name%>.
+            Here you can write and reply to your friends
+        </p>
+
+        <% if (friends_list.length == []) { %>
+            <p>
+                You don't have any friends to send a message to.
+                Go make some friends !!!
+            </p>
+        <% }else{ %>
+            <form action="/sendMessage" method="post">
+                <label for="recipient">Choose a friend you want to send a message to</label>
+                <select name="recipient">
+                    <% for(var i=0 ; i < friends_list.length ; i++) { %>
+                        <% if(recipient != "" && friends_list[i].email == recipient) { %>
+                            <option value="<%= friends_list[i].email %>" selected="selected"><%= friends[i].firstName %> <%= friends[i].lastName %></option>
+                        <% } %>
+                        <% else { %>
+                            <option value="<%= friends_list[i].email %>"><%= friends[i].firstName %> <%= friends[i].lastName %></option>
+                        <% } %>
+                    <% } %>
+                </select>
+                <textarea name="message-content" id="message-content" rows="5" cols="33"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        <% } %>
+    </main>
+
+</body>
+</html>
