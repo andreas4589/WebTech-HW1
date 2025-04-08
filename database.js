@@ -6,8 +6,6 @@ const users = require('./users');
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database(path.join(__dirname, 'mydatabase.db'));
 
-
-
 db.serialize(() => {
     db.run('CREATE TABLE IF NOT EXISTS users (firstName TEXT, lastName TEXT, password TEXT, email TEXT, major TEXT, age NUMERIC, photo TEXT, hobbies TEXT)');
     db.run('CREATE TABLE IF NOT EXISTS courses (name TEXT)')

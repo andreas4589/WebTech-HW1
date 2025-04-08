@@ -8,7 +8,7 @@ const PORT = 8038;
 const session = require("express-session")
 const options = {secret: "Not so very secret"}
 const sessionOptions = {
-  secret: 'your-secret-key',     // Replace with a strong secret in production
+  secret: 'your-secret-key',     
   resave: false,                 // Don't save session if unmodified
   saveUninitialized: false,      // Don't create session until something is stored
   cookie: {

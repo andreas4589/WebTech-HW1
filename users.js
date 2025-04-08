@@ -56,12 +56,99 @@ router.get("/profile/:useremail", function (req, res) {
                 age: user.age,
                 email: user.email,
                 photo: user.photo,
-                program: user.program,
+                program: user.major, 
                 hobbies: user.hobbies,
             });
         }
     );
 });
+
+router.get("/profile/edit/:useremail", function (req, res) {
+    const email = req.params.useremail;
+
+    if (req.session.user !== email) {
+        return res.redirect("/");
+    }
+
+    db.get(
+        "SELECT firstName, lastName, age, email, photo, major, hobbies FROM users WHERE email = ?",
+        [email],
+        function (err, user) {
+            if (err) {
+                console.error("Database error:", err);
+                return res.status(500).send("Database error");
+            }
+
+            if (!user) return res.status(404).send("User not found");
+
+            res.render("user_profile", {
+                fname: user.firstName,
+                lname: user.lastName,
+                age: user.age,
+                email: user.email,
+                photo: user.photo,
+                program: user.major, 
+                hobbies: user.hobbies,
+            });
+        }
+    );
+});
+
+router.get("/courses/course/:coursename", (req, res) => {
+    const courseName = req.params.coursename;
+    const email = req.session.user;
+
+    if (req.session.user !== email) {
+        return res.redirect("/");
+    }
+
+    const query = `
+        SELECT u.firstName, u.lastName, u.photo 
+        FROM users u
+        INNER JOIN user_courses uc ON u.email = uc.user_email
+        WHERE uc.course_name = ? AND u.email != ?
+    `;
+
+    db.all(query, [courseName, email], (err, students) => {
+        if (err) {
+            console.error("Error fetching classmates:", err);
+            return res.status(500).send("Database error");
+        }
+
+        res.render("course_classmates", {
+            course: courseName,
+            students: students,
+            email: email
+        });
+    });
+});
+
+router.get("/courses/:useremail", (req, res) => {
+    const email = req.params.useremail;
+
+    if (req.session.user !== email) {
+        return res.redirect("/");
+    }
+
+    db.all(
+        "SELECT course_name FROM user_courses WHERE user_email = ?",
+        [email],
+        (err, rows) => {
+            if (err) {
+                console.error("Database error:", err);
+                return res.status(500).send("Database error");
+            }
+        
+            res.render("user_courses", {
+                email: email,
+                firstname: req.session.firstName,
+                lastname: req.session.lastName,
+                courses: rows, // Array of course objects
+            });
+        }
+    );
+});
+
 
 
 
@@ -90,6 +177,7 @@ router.get("/message-box/:useremail", function (req, res) {
                 function (err, messagesResult) {
                     res.render("message-box", {
                         name: firstName,
+                        email: email,
                         messages_list: messagesResult || []
                     });
                 }
@@ -114,10 +202,10 @@ router.get("/write-message/:recipient", function (req, res) {
                     WHERE f.user_email=? AND f.friend_email=u.email`, [req.session.userid],
                     function (err, result) {
                         if (result !== undefined) {
-                            res.render("write-message", {name: name, friends_list: result, recipient: recipient,  email: req.params.userid});
+                            res.render("write-message", {name: name, friends_list: result, recipient: recipient,  email: req.session.user});
                         }
                         else{
-                            res.render("write-message", {name: name, friends_list: [], recipient: recipient,  email: req.params.userid});
+                            res.render("write-message", {name: name, friends_list: [], recipient: recipient,  email: req.session.user});
                         }  
                 });
             }
@@ -139,10 +227,10 @@ router.get("/write-message", function (req, res) {
                     WHERE f.user_email=? AND f.friend_email=u.email`, [req.session.userid],
                     function (err, result) {
                         if (result !== undefined) {
-                            res.render("write-message", {name: name, friends_list: result, recipient: recipient,  email: req.params.userid});
+                            res.render("write-message", {name: name, friends_list: result, recipient: recipient,  email: req.session.user});
                         }
                         else{
-                            res.render("write-message", {name: name, friends_list: [], recipient: recipient,  email: req.params.userid});
+                            res.render("write-message", {name: name, friends_list: [], recipient: recipient,  email: req.session.user});
                         }  
                 });
             }
