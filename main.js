@@ -7,10 +7,20 @@ const {db} = require("./database");
 const PORT = 8038;
 const session = require("express-session")
 const options = {secret: "Not so very secret"}
+const sessionOptions = {
+  secret: 'your-secret-key',     // Replace with a strong secret in production
+  resave: false,                 // Don't save session if unmodified
+  saveUninitialized: false,      // Don't create session until something is stored
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24  // Optional: Session expires in 1 day
+  }
+};
+
+app.use(session(sessionOptions));
 
 app.set('view engine', 'ejs');
 
-app.use(session(options));
+//app.use(session(options));
 
 app.set('views', path.join(__dirname, 'views'));
 
@@ -20,7 +30,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/users", users);
 
-app.use(express.static('public'));
+app.get('/', (req, res) => {
+  res.render("index", { error: null });
+});
 
 
 app.get('/usersDebug', (req, res) => {

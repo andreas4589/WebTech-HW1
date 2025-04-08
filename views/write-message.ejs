@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About us</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="js/script.js" type="module"></script>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/js/script.js" type="module"></script>
 </head>
 <body>
-    <button id="darkModeToggle">🌙 Dark Mode</button>
     <header>      
         <h1 class="banner">Message box</h1>
     </header>
@@ -16,7 +15,7 @@
         <a href="home.html">Home</a>
         <a href="about-us.html">About us</a>
         <a href="recipes.html">Recipes</a>
-        <a href="message-box">check your messages</a>
+        <a href="/users/message-box/<%= email %>">Check your messages</a>
     </nav>
 
     <main>
@@ -38,8 +37,8 @@
                     <% for(var i=0 ; i < friends_list.length ; i++) { %>
                         <% if(recipient != "" && friends_list[i].email == recipient) { %>
                             <option value="<%= friends_list[i].email %>" selected="selected"><%= friends[i].firstName %> <%= friends[i].lastName %></option>
-                        <% } %>
-                        <% else { %>
+                        <% } 
+                        else { %>
                             <option value="<%= friends_list[i].email %>"><%= friends[i].firstName %> <%= friends[i].lastName %></option>
                         <% } %>
                     <% } %>

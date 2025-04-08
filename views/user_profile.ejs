@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/js/script.js" type="module"></script>
+</head>
+<body>
+    <button id="darkModeToggle">🌙 Dark Mode</button>
+    <header>      
+        <h1 class="banner">Profile</h1>
+    </header>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about-us.html">About us</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="/users/message-box/<%= email %>">Check your messages</a>
+    </nav>
+
+    <h2>View / Edit your profile</h2>
+    <form action="/users/authentication/register/update" method="post" id="login-container">
+        <label for="firstName">First name:</label>
+        <input type="text" id="firstName" name="firstName" value = <%=fname%> required>
+        <label for="lastName">Last name:</label>
+        <input type="text" id="lastName" name="lastName" value = <%=lname%> required>
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" value = <%=age%> required>
+        <label for="email">E-mail address:</label>
+        <input type="text" id="email" name="email" value = <%= email %> readonly>
+        <label for="photo">Photo:</label>
+        <input type="text" id="photo" value = <%=photo%> name="photo">
+        <label for="program">Program / Major:</label>
+        <select name="program" id="program">
+            <option value="Computer Science" <%= program === "Computer Science" ? "selected" : "" %>>Computer Science</option>
+            <option value="Artificial Intelligence" <%= program === "Artificial Intelligence" ? "selected" : "" %>>Artificial Intelligence</option>
+            <option value="Mathematics" <%= program === "Mathematics" ? "selected" : "" %>>Mathematics</option>
+            <option value="Physics" <%= program === "Physics" ? "selected" : "" %>>Physics</option>
+            <option value="Biology" <%= program === "Biology" ? "selected" : "" %>>Biology</option>
+            <option value="Chemistry" <%= program === "Chemistry" ? "selected" : "" %>>Chemistry</option>
+            <option value="Engineering" <%= program === "Engineering" ? "selected" : "" %>>Engineering</option>
+          </select>          
+        <label for="hobbies">Hobbies:</label>
+        <input type="text" id="hobbies" name="hobbies" value = <%=hobbies%> required>
+        <label for="courses">Courses:</label>
+        <select id="courses" name="courses" multiple size="5">
+            <option value="INFOSP">Informatica Softwareproject</option>
+            <option value="INFODB">Databases</option>
+            <option value="INFOFP">Functioneel Programmeren</option>
+            <option value="INFOB3OMI">Onderzoeksmethoden voor Informatica</option>
+            <option value="INFOB3ML">Machine Learning</option>
+            <option value="INFOB3SEC">Security</option>
+            <option value="INFOB2CI">Computationele Intelligentie</option>
+            <option value="INFOAL">Algoritmiek</option>
+            <option value="INFOB3DW">Discrete Wiskunde</option>
+            <option value="INFOB3IS">Intelligente Systemen</option>
+            <option value="INFOB2WT">Webtechnologie</option>
+            <option value="INFOB3STV">Software Testing en Verificatie</option>
+            </select>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button class="button-style" type="submit">Edit Profile</button>
+    </form>
+</body>
+</html>

@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <script src="js/script.js" type="module"></script>
 </head>
 <body>
     <header>
         <h1>Web For Cooking</h1>
     </header>
+    <% if (error) { %>
+        <div class="error-box">
+          <%= error %>
+        </div>
+      <% } %>
     <form action="/users/authentication/login" method="post" id="login-container">
         <h2>Login</h2>
         <label for="email">E-mail address:</label>
-        <input type="text" id="email" name="email" required>
+        <input type="text" name="email" value="<%= typeof email !== 'undefined' ? email : '' %>" required>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
         <button type="submit" class="button-style">Login</button>
-        <button class="button-style" onclick="window.location.href = 'register.html'">Register</button>
+        <button class="button-style" onclick="window.location.href = '/register.html'">Register</button>
     </form>
 </body>
 </html>
