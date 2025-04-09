@@ -1,3 +1,7 @@
+<!--
+Dynamic page where the user can edit his profile
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,8 +46,10 @@
             <option value="Engineering" <%= program === "Engineering" ? "selected" : "" %>>Engineering</option>
           </select>          
         <label for="hobbies">Hobbies:</label>
+        <i>fill in your hobbies like this: hobbie1,hobie2,hobbie3,...</i>
         <input type="text" id="hobbies" name="hobbies" value = <%=hobbies%> required>
         <label for="courses">Courses:</label>
+        <i>select multiple courses by holding ctrl (or cmd for mac)</i>
         <select id="courses" name="courses" multiple size="5">
             <option value="Informatica Softwareproject">Informatica Softwareproject</option>
             <option value="Databases">Databases</option>

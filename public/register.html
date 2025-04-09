@@ -1,3 +1,5 @@
+<!-- Register page where a user can create an account -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,9 +36,11 @@
             <option value="Engineering">Engineering</option>
         </select>
         <label for="hobbies">Hobbies:</label>
+        <i>fill in your hobbies like this: hobbie1,hobie2,hobbie3,...</i>
         <input type="text" id="hobbies" name="hobbies" required>
         <label for="courses">Courses:</label>
-        <select id="courses" name="courses" multiple size="5">
+        <i>select multiple courses by holding ctrl (or cmd for mac)</i>
+        <select id="courses" name="courses[]" multiple size="5">
             <option value="Informatica Softwareproject">Informatica Softwareproject</option>
             <option value="Databases">Databases</option>
             <option value="Functioneel Programmeren">Functioneel Programmeren</option>

@@ -1,15 +1,22 @@
+// This file defines routes for user registration and profile updates
+
+
 const express = require("express");
 const router = express.Router();
 const {db} = require("./database");
-const cookieParser = require('cookie-parser');
 
+//route to handle users registration
 router.post("/", (req, res) => {
+    // get all the info sent by the user and put them into a variables
     const {firstName, lastName, password, email, program, age, hobbies, photo, courses} = req.body;
     db.get("SELECT * FROM users WHERE email = ?", [email], (err, result) => {
-        if (result !== undefined) { res.send("You already have an account pls login"); }
+        // check if a user already have an account
+        if (result !== undefined) { res.send("You already have an account please login"); }
         else {
+            // if the user doesn't exist, we add him in the user table...
             db.run('INSERT INTO users (firstName, lastName, password, email, major, age, photo, hobbies) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [firstName, lastName, password, email, program, age, photo, hobbies]);
             courses.forEach(course => {
+                // ... and his courses in the user_courses table
                 db.run(
                     'INSERT INTO user_courses (user_email, course_name) VALUES (?, ?)',
                     [email, course],
@@ -21,19 +28,27 @@ router.post("/", (req, res) => {
                 );
             });
             
-            req.session.user = req.body.email;
-            res.redirect( "/users/home/" + email);
+            req.session.user = req.body.email;        //store user's email in the session for subsequent requests
+            res.redirect( "/users/home/" + email);        // redirect the user to the home page
         }
     });
 })
 
+
+//route to handle updating user information (POST request to /update)
+// for user_edit_profile
 router.post("/update", (req, res) => {
+    // get all the info sent by the user and put them into a variables
     const { firstName, lastName, password, email, program, age, hobbies, photo, courses } = req.body;
   
+    // Check if the user logged in is the same as the user whose profile is being modified
     if (req.session.user !== email) {
       return res.status(403).send("Unauthorized");
     }
   
+    // SQL queries to update the tables
+
+    // Step1: update the users
     const updateUserSQL = `
       UPDATE users 
       SET 
