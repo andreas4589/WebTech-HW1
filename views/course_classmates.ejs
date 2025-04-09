@@ -22,6 +22,10 @@
         <% } else { %>
         <em>No photo</em>
         <% } %>
+        <form action="/users/send-friend-request" method="POST" style="display:inline;">
+          <input type="hidden" name="recipient" value="<%= student.email %>">
+          <button type="submit" class="button-style">Send friend request</button>
+        </form>        
       </li>
       <% }) %>
     </ul>

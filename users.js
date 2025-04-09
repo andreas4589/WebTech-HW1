@@ -126,7 +126,7 @@ router.get("/courses/course/:coursename", (req, res) => {
   }
 
   const query = `
-        SELECT u.firstName, u.lastName, u.photo 
+        SELECT u.firstName, u.lastName, u.email, u.photo
         FROM users u
         INNER JOIN user_courses uc ON u.email = uc.user_email
         WHERE uc.course_name = ? AND u.email != ?
@@ -166,17 +166,12 @@ router.get("/courses/:useremail", (req, res) => {
         email: email,
         firstname: req.session.firstName,
         lastname: req.session.lastName,
-        courses: rows, // Array of course objects
+        courses: rows, 
       });
     }
   );
 });
 
-/*
-added by Taha 
-I assumed here that in the table message, the row sender and recipient
-corespond to the email adresses
-*/
 router.get("/message-box/:useremail", function (req, res) {
   const email = req.params.useremail;
 
@@ -300,6 +295,52 @@ router.get("/write-message", function (req, res) {
   }
 });
 
+router.get("/friends/:userid", (req, res) => {
+  const user = req.params.userid;
+
+  if (req.session.user !== user) {
+      return res.redirect("/");
+  }
+
+  // Get confirmed friends (bidirectional)
+  const friendsQuery = `
+      SELECT u.firstName, u.lastName, u.email, u.photo
+      FROM users u
+      JOIN friends f 
+      ON (f.friend_email = u.email AND f.user_email = ?)
+         OR (f.user_email = u.email AND f.friend_email = ?)
+  `;
+
+  // Get incoming friend requests
+  const requestsQuery = `
+      SELECT u.firstName, u.lastName, u.email, u.photo
+      FROM users u
+      JOIN friend_requests fr ON fr.sender = u.email
+      WHERE fr.recipient = ?
+  `;
+
+  db.all(friendsQuery, [user, user], (err, friends) => {
+      if (err) {
+          console.error("Error fetching friends:", err);
+          return res.status(500).send("Database error");
+      }
+
+      db.all(requestsQuery, [user], (err, requests) => {
+          if (err) {
+              console.error("Error fetching friend requests:", err);
+              return res.status(500).send("Database error");
+          }
+
+          res.render("friends", {
+              email: user,
+              friends: friends,
+              requests: requests,
+          });
+      });
+  });
+});
+
+
 router.post("/sendMessage", function (req, res) {
   if (req.session.user) {
     var sender = req.session.userid;
@@ -316,5 +357,48 @@ router.post("/sendMessage", function (req, res) {
     res.redirect("/login");
   }
 });
+
+router.post("/send-friend-request", (req, res) => {
+  const sender = req.session.user;
+  const recipient = req.body.recipient;
+
+  if (!sender || !recipient) {
+      return res.status(400).send("Missing sender or recipient.");
+  }
+
+  // Check if a request already exists (either direction if needed)
+  db.get(
+      `SELECT * FROM friend_requests 
+       WHERE sender = ? AND recipient = ?`,
+      [sender, recipient],
+      (err, existingRequest) => {
+          if (err) {
+              console.error("Error checking existing request:", err);
+              return res.status(500).send("Database error");
+          }
+
+          if (existingRequest) {
+              return res.send("Friend request already sent.");
+          }
+
+          // Insert new friend request
+          db.run(
+              "INSERT INTO friend_requests (sender, recipient) VALUES (?, ?)",
+              [sender, recipient],
+              function (err) {
+                  if (err) {
+                      console.error("Error inserting friend request:", err);
+                      return res.status(500).send("Database error");
+                  }
+
+                  res.send("Friend request sent!");
+                  // Or redirect: res.redirect("back");
+              }
+          );
+      }
+  );
+});
+
+
 
 module.exports = router;

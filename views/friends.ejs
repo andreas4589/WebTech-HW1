@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Friends of <%= email %></title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Your Friends</h1>
+
+  <% if (friends.length === 0) { %>
+    <p>You don't have any friends yet.</p>
+  <% } else { %>
+    <ul>
+        <% friends.forEach(friend => { %>
+          <li>
+            <a href="/users/profile/<%= friend.email %>">
+              <strong><%= friend.firstName %> <%= friend.lastName %></strong>
+            </a>
+          </li>
+        <% }) %>
+      </ul>      
+  <% } %>
+
+  <h2>Friend Requests</h2>
+  <% if (requests.length === 0) { %>
+    <p>No pending friend requests.</p>
+  <% } else { %>
+    <ul>
+      <% requests.forEach(req => { %>
+        <li>
+          <strong><%= req.firstName %> <%= req.lastName %></strong><br>
+          <% if (req.photo) { %>
+            <img src="<%= req.photo %>" alt="photo" width="100"><br>
+          <% } %>
+          <%= req.email %>
+          <!-- You can add accept/reject buttons here -->
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <a href="/users/home/<%= email %>">Back to Home</a>
+</body>
+</html>
