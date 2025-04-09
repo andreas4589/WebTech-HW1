@@ -28,14 +28,15 @@ router.get("/home/:userid", function (req, res) {
 router.get("/profile/:userid", function (req, res) {
   const profile = req.params.userid;
 
-  if (req.session.user !== email) {
+  if (req.session.user !== profile) {
     db.get(
         `SELECT * FROM friends 
          WHERE (user_email = ? AND friend_email = ?) 
             OR (user_email = ? AND friend_email = ?)`,
         [req.session.user, profile, profile, req.session.user], function (err, result) {
         if (result !== undefined) { 
-            res.send("You are friends and therefore allowed to view this page"); }
+            view(profile, db, req, res);
+        }
         else {
             res.send("Not Found");
         }
@@ -43,9 +44,13 @@ router.get("/profile/:userid", function (req, res) {
     return 
   }
 
+  view(profile, db, req, res);
+});
+
+function view(profile, db, req, res){
   db.get(
     "SELECT firstName, lastName, age, email, photo, major, hobbies FROM users WHERE email = ?",
-    [email],
+    [profile],
     function (err, user) {
       if (err) {
         console.error("Database error (user):", err);
@@ -57,7 +62,7 @@ router.get("/profile/:userid", function (req, res) {
       // Get courses after user is found
       db.all(
         "SELECT course_name FROM user_courses WHERE user_email = ?",
-        [email],
+        [profile],
         function (err, courses) {
           if (err) {
             console.error("Database error (courses):", err);
@@ -68,17 +73,18 @@ router.get("/profile/:userid", function (req, res) {
             fname: user.firstName,
             lname: user.lastName,
             age: user.age,
-            email: user.email,
+            email: profile,
             photo: user.photo,
             program: user.major,
             hobbies: user.hobbies,
             courses: courses,
+            useremail: req.session.user,
           });
         }
       );
     }
   );
-});
+}
 
 router.get("/profile/edit/:useremail", function (req, res) {
   const email = req.params.useremail;
@@ -99,37 +105,6 @@ router.get("/profile/edit/:useremail", function (req, res) {
       if (!user) return res.status(404).send("User not found");
 
       res.render("user_profile_edit", {
-        fname: user.firstName,
-        lname: user.lastName,
-        age: user.age,
-        email: user.email,
-        photo: user.photo,
-        program: user.major,
-        hobbies: user.hobbies,
-      });
-    }
-  );
-});
-
-router.get("/profile/edit/:useremail", function (req, res) {
-  const email = req.params.useremail;
-
-  if (req.session.user !== email) {
-    return res.redirect("/");
-  }
-
-  db.get(
-    "SELECT firstName, lastName, age, email, photo, major, hobbies FROM users WHERE email = ?",
-    [email],
-    function (err, user) {
-      if (err) {
-        console.error("Database error:", err);
-        return res.status(500).send("Database error");
-      }
-
-      if (!user) return res.status(404).send("User not found");
-
-      res.render("user_profile", {
         fname: user.firstName,
         lname: user.lastName,
         age: user.age,

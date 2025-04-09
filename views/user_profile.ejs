@@ -12,10 +12,10 @@
         <h1 class="banner">Profile</h1>
     </header>
     <nav>
-        <a href="/users/home/<%= email %>">Home</a>
+        <a href="/users/home/<%= useremail %>">Home</a>
         <a href="/about-us.html">About us</a>
         <a href="/recipes.html">Recipes</a>
-        <a href="/users/message-box/<%= email %>">Check your messages</a>
+        <a href="/users/message-box/<%= useremail %>">Check your messages</a>
     </nav>
 
     <h2><%=fname%>'s profile</h2>
@@ -23,21 +23,10 @@
         <li><strong>First name:</strong> <%=fname%></li>
         <li><strong>Last name:</strong> <%=lname%></li>
         <li><strong>Age:</strong> <%=age%></li>
-        <li><strong>E-mail address:</strong> <%= email %></li>
+        <li><strong>E-mail address:</strong> <%=email%></li>
         <li><strong>Photo:</strong> <img src="<%=photo%>" alt="photo" width="100"></li>
         <li><strong>Program / Major:</strong> <%= program %></li>
         <li><strong>Hobbies:</strong> <%=hobbies%></li>
-        <li><strong>Courses:</strong> 
-            <% if (courses.length > 0) { %>
-                <ul>
-                    <% courses.forEach(course => { %>
-                        <li><a href="/users/courses/course/<%= encodeURIComponent(course.course_name) %>"><%= course.course_name %></a></li>
-                    <% }) %>
-                </ul>
-            <% } else { %>
-                No courses enrolled.
-            <% } %>
-        </li>
     </ul>
     <button class ="button-style">Send friendrequest</button>
 </body>
