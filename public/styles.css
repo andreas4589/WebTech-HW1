@@ -320,50 +320,81 @@ nav a:hover {
     border-radius: 10px;
     max-width: 100px;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .classmates-section {
-    max-width: 700px;
+    max-width: 1000px;
     margin: 40px auto;
-    padding: 20px 30px;
+    padding: 30px;
     background-color: #fcfcfc;
     border: 1px solid #ddd;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-  
-.classmates-section h1 {
     text-align: center;
-    font-size: 1.8em;
-    margin-bottom: 25px;
-    color: rgb(212, 68, 48);;
-}
+
+    .button-style {
+        width: 85%;
+    }
+  }
   
-.classmates-section ul {
-    list-style-type: none;
+  .classmates-section h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: rgb(212, 68, 48);
+  }
+  
+  .classmates-section ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
     padding: 0;
     margin: 0;
-}
+    list-style: none;
+  }
   
-.classmate-card {
+  .classmate-card {
+    width: 200px;
     padding: 15px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 10px;
-}
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    text-align: center;
+  }
   
-.back-link {
+  .classmate-card img {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    margin: 10px 0;
+    border-radius: 6px;
+    background-color: #f2f2f2;
+  }
+  
+  .classmate-card strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+  
+  .classmate-card form {
+    margin-top: 10px;
+  }
+  
+  .back-link {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 30px;
     text-decoration: none;
     color: rgb(212, 68, 48);
     font-weight: bold;
-}
+  }
   
-.back-link:hover {
+  .back-link:hover {
     text-decoration: underline;
-}
+  }
   
 @media screen and (max-width: 1200px) {
 

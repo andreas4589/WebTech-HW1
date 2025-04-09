@@ -117,12 +117,13 @@ router.get("/profile/edit/:useremail", function (req, res) {
   );
 });
 
-router.get("/courses/course/:coursename", (req, res) => {
+router.get("/api/classmates/:coursename", (req, res) => {
   const courseName = req.params.coursename;
   const email = req.session.user;
-
-  if (req.session.user !== email) {
-    return res.redirect("/");
+  
+  if (!email) {
+    console.warn("⚠️ Unauthenticated AJAX fetch");
+    return res.status(401).json({ error: "Unauthorized" });
   }
 
   const query = `
@@ -138,13 +139,22 @@ router.get("/courses/course/:coursename", (req, res) => {
       return res.status(500).send("Database error");
     }
 
-    res.render("course_classmates", {
-      course: courseName,
-      students: students,
-      email: email,
-    });
+    res.json(students); 
   });
 });
+
+router.get("/courses/course/:coursename", (req, res) => {
+  const courseName = req.params.coursename;
+  const email = req.session.user;
+
+  if (!email) return res.redirect("/");
+
+  res.render("course_classmates", {
+    course: courseName,
+    email: email
+  });
+});
+
 
 router.get("/courses/:useremail", (req, res) => {
   const email = req.params.useremail;
