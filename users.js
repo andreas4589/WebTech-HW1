@@ -102,11 +102,11 @@ function view(profile, db, req, res){
 
 // Route to edit a user's profile (route for user_profile_edited.ejs)
 router.get("/profile/edit/:useremail", function (req, res) {
-  const email = req.params.useremail;   // get the email in the parameters of the request
+  const email = req.params.useremail;
 
   // Check if the user is authorized
   if (req.session.user !== email) {
-    return res.redirect("/");   // if not, redirect to the login page
+    return res.redirect("/");
   }
 
   // Retrieve the user's current information for editing
@@ -135,14 +135,13 @@ router.get("/profile/edit/:useremail", function (req, res) {
   );
 });
 
-// Route to view classmates enrolled in a specific course (route for course_classmate.ejs)
-router.get("/courses/course/:coursename", (req, res) => {
+router.get("/api/classmates/:coursename", (req, res) => {
   const courseName = req.params.coursename;
   const email = req.session.user;
 
-  // Check if the user is authorized
-  if (req.session.user !== email) {
-    return res.redirect("/");         // if not, redirect to the login page
+  if (!email) {
+    console.warn("⚠️ Unauthenticated AJAX fetch");
+    return res.status(401).json({ error: "Unauthorized" });
   }
 
   // SQL query to get all the students enrolled in the course
@@ -159,12 +158,19 @@ router.get("/courses/course/:coursename", (req, res) => {
       return res.status(500).send("Database error");
     }
 
-    // Render the course classmates page
-    res.render("course_classmates", {
-      course: courseName,
-      students: students,
-      email: email,
-    });
+    res.json(students);
+  });
+});
+
+router.get("/courses/course/:coursename", (req, res) => {
+  const courseName = req.params.coursename;
+  const email = req.session.user;
+
+  if (!email) return res.redirect("/");
+
+  res.render("course_classmates", {
+    course: courseName,
+    email: email
   });
 });
 
@@ -174,7 +180,7 @@ router.get("/courses/:useremail", (req, res) => {
 
   // Check if the user is authorized
   if (req.session.user !== email) {
-    return res.redirect("/");         // if not, redirect to the login page
+    return res.redirect("/");
   }
 
   // Fetch the list of courses for the user
@@ -203,9 +209,9 @@ router.get("/courses/:useremail", (req, res) => {
 router.get("/message-box/:useremail", function (req, res) {
   const email = req.params.useremail;
 
-  // Check if the user is authorized
+  // Optional: check if logged-in user matches the email
   if (req.session.user !== email) {
-    return res.redirect("/");         // if not, redirect to the login page
+    return res.redirect("/");
   }
 
   // Get the user's first name for display
@@ -245,12 +251,12 @@ router.get("/message-box/:useremail", function (req, res) {
 router.get("/write-message/:recipient", function (req, res) {
   const recipient = req.params.recipient;
 
-  if (!req.session.user) return res.redirect("/");  // Redirect if no the user is not logged in
+  if (!req.session.user) return res.redirect("/");
 
   db.get("SELECT firstName FROM users WHERE email = ?", [req.session.user], function (err, result) {
     if (!result) return res.send("Not Found");
 
-    const name = result.firstName;  // firstName of the user
+    const name = result.firstName;
 
     // Fetch the sender friends to allow him to choose a recipient
     db.all(
@@ -322,7 +328,7 @@ router.get("/friends/:userid", (req, res) => {
   const user = req.params.userid;
 
   if (req.session.user !== user) {
-      return res.redirect("/");       // Redirect if unauthorized
+      return res.redirect("/");
   }
 
   // SQL query to get all of the user friends
@@ -367,11 +373,11 @@ router.get("/friends/:userid", (req, res) => {
 
 // Route to send a message (POST requests from write-message)
 router.post("/sendMessage", function (req, res) {
-  if (!req.session.user) return res.redirect("/login"); // redirect if not loggeded in
+  if (!req.session.user) return res.redirect("/login");
 
-  const sender = req.session.user;        // sender of the message
-  const recipient = req.body.recipient;       // recipient of the message
-  const message = req.body["message-content"];        // content
+  const sender = req.session.user;
+  const recipient = req.body.recipient;
+  const message = req.body["message-content"];
 
   // make sure we have a recipient and a content (otherwise, we will populate the DB unecessarily)
   if (!recipient || !message) {
@@ -388,6 +394,7 @@ router.post("/sendMessage", function (req, res) {
       }
 
       res.redirect("/users/message-box/" + sender);
+; // Or send success message
     }
   );
 });

@@ -5,19 +5,15 @@ Dynamic Home page. The page displays the name and last name of the user
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration</title>
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="/js/script.js" type="module"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home of <%= firstname %> <%= lastname %></title>
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
     <header class="banner">
       <h1 class="banner">Web For Cooking</h1>
     </header>
-    <h2 class="introduction__catch-phrase">
-      Welcome <%= firstname %> <%= lastname %>
-    </h2>
     <nav>
       <a href="/users/home/<%= email %>">Home</a>
       <a href="/users/profile/<%= email %>">View Profile</a>
@@ -27,24 +23,24 @@ Dynamic Home page. The page displays the name and last name of the user
       <a href="/users/message-box/<%= email %>">Check your messages</a>
       <a href="/users/write-message">Write messages</a>
     </nav>
-
     <main>
       <section class="introduction">
         <h2 class="introduction__catch-phrase">
-          Welcome to web for cooking — a journey through flavors and history.
+          Welcome <%= firstname %> <%= lastname %>
+          to Web for Cooking — a journey through flavors and history.
         </h2>
         <p class="introduction__text">
           Cooking is more than just making meals — it's a story told through
           ingredients, flavors and traditions. At web for cooking, we explore
           the rich history behind the ingredients you use every day while
           sharing delicious recipes that bring them to life.
-          <br />
+          <br>
           Discover the origins of your favorite spices, the cultural
           significance of staple foods, and how different cuisines have evolved
           over time. Whether you're here to try a new dish or learn about the
           history of an ingredient, we invite you to savor the stories behind
           every bite.
-          <br /><br />
+          <br><br>
           Let's cook, learn and celebrate food together!
         </p>
       </section>
@@ -106,18 +102,10 @@ Dynamic Home page. The page displays the name and last name of the user
             </aside>
 
             <figure class="news__art1__img">
-              <img
-                class="recipe-img"
-                src="/pictures/article1.jpg"
-                alt="Seasonal product february"
-              />
+              <img class="recipe-img" src="/pictures/article1.jpg" alt="Seasonal product february">
               <figcaption>
                 Want to know more about the recipies? Go check their
-                <a
-                  href="https://www.deliciousmagazine.co.uk/collections/february-seasonal-food/"
-                  target="_blank"
-                  >website</a
-                >
+                <a href="https://www.deliciousmagazine.co.uk/collections/february-seasonal-food/" target="_blank">website</a>
               </figcaption>
             </figure>
           </section>
@@ -132,25 +120,15 @@ Dynamic Home page. The page displays the name and last name of the user
                 forget, it's of course the deck Streetfood festival. It's a two
                 hour experience where you will discover street food inspired
                 dishes from all over the world. Don't wait and book a
-                <a href="https://www.deckamsterdam.com/events" target="_blank"
-                  >table</a
-                >!
+                <a href="https://www.deckamsterdam.com/events" target="_blank">table</a>
               </p>
             </aside>
 
             <figure class="news__art2__img">
-              <img
-                class="recipe-img"
-                src="/pictures/article2.jpg"
-                alt="Street food festival"
-              />
+              <img class="recipe-img" src="/pictures/article2.jpg" alt="Street food festival">
               <figcaption>
                 Want to know more about the festival? Go check their
-                <a
-                  href="https://www.instagram.com/deckamsterdam/"
-                  target="_blank"
-                  >instagram account</a
-                >!
+                <a href="https://www.instagram.com/deckamsterdam/" target="_blank">instagram account</a>
               </figcaption>
             </figure>
           </section>

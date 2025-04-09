@@ -10,9 +10,8 @@ This is where the user is redirected when he click on one of the courses in user
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= course %> - Classmates</title>
     <link rel="stylesheet" href="/styles.css" />
-    <script src="/js/script.js" type="module"></script>
   </head>
-  <body>
+  <body data-course="<%= course %>">
     <nav>
       <a href="/users/home/<%= email %>">Home</a>
       <a href="/users/profile/<%= email %>">View Profile</a>
@@ -24,35 +23,12 @@ This is where the user is redirected when he click on one of the courses in user
     </nav>
     <main class="classmates-section">
       <h1>Classmates in <%= course %></h1>
-
-      <% if (students.length === 0) { %>
-      <p>No other students enrolled in this course.</p>
-      <% } else { %>
-      <ul>
-        <% students.forEach(student => { %>
-        <li class="classmate-card">
-          <strong><%= student.firstName %> <%= student.lastName %></strong><br />
-          <% if (student.photo) { %>
-          <img src="<%= student.photo %>" class="profile-photo" alt="photo" width="100" />
-          <% } else { %>
-          <em>No photo</em>
-          <% } %>
-          <form
-            action="/users/send-friend-request"
-            method="POST"
-            style="display: inline"
-          >
-            <input type="hidden" name="recipient" value="<%= student.email %>" />
-            <button type="submit" class="button-style">
-              Send friend request
-            </button>
-          </form>
-        </li>
-        <% }) %>
+      <ul id="classmate-list">
+        <li>Loading classmates...</li>
       </ul>
-      <% } %>
-
-      <a href="/users/courses/<%= email %>" class="back-link">Back to Courses</a>
+    
+      <a href="/users/courses/<%= email %>" class="back-link">← Back to Courses</a>
     </main>
+    <script src="/js/script.js"></script>
   </body>
 </html>

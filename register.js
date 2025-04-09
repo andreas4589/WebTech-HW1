@@ -70,14 +70,12 @@ router.post("/update", (req, res) => {
         return res.status(500).send("User update failed");
       }
   
-      // Step 2: Update courses
       db.run("DELETE FROM user_courses WHERE user_email = ?", [email], function (err) {
         if (err) {
           console.error("Course delete error:", err);
           return res.status(500).send("Course reset failed");
         }
   
-        // Insert the new course selections (assuming 'courses' is an array)
         if (Array.isArray(courses) && courses.length > 0) {
           const insertCourseSQL = "INSERT INTO user_courses (user_email, course_name) VALUES (?, ?)";
           const stmt = db.prepare(insertCourseSQL);
