@@ -392,9 +392,60 @@ router.post("/send-friend-request", (req, res) => {
                   }
 
                   res.send("Friend request sent!");
-                  // Or redirect: res.redirect("back");
               }
           );
+      }
+  );
+});
+
+router.post("/friend-request/accept", (req, res) => {
+  const sender = req.body.sender;
+  const recipient = req.session.user;
+
+  if (!sender || !recipient) {
+      return res.status(400).send("Missing sender or recipient.");
+  }
+
+  // Insert into friends and remove from friend_requests
+  db.run(
+      "INSERT INTO friends (user_email, friend_email) VALUES (?, ?)",
+      [recipient, sender],
+      function (err) {
+          if (err) {
+              console.error("Error adding friend:", err);
+              return res.status(500).send("Database error");
+          }
+
+          db.run(
+              "DELETE FROM friend_requests WHERE sender = ? AND recipient = ?",
+              [sender, recipient],
+              function (err) {
+                  if (err) {
+                      console.error("Error deleting friend request:", err);
+                      return res.status(500).send("Database error");
+                  }
+
+                  res.send("Friend request accepted!");
+              }
+          );
+      }
+  );
+});
+
+router.post("/friend-request/remove", (req, res) => {
+  const sender = req.body.sender;
+  const recipient = req.session.user;
+
+  db.run(
+      "DELETE FROM friend_requests WHERE sender = ? AND recipient = ?",
+      [sender, recipient],
+      function (err) {
+          if (err) {
+              console.error("Error removing friend request:", err);
+              return res.status(500).send("Database error");
+          }
+
+          res.send("Friend request denied!");
       }
   );
 });
