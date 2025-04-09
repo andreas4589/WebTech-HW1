@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= course %> - Classmates</title>
     <link rel="stylesheet" href="/styles.css" />
     <script src="/js/script.js" type="module"></script>
   </head>
   <body>
+    <nav>
+      <a href="/users/home/<%= email %>">Home</a>
+      <a href="/users/profile/<%= email %>">View Profile</a>
+      <a href="/users/profile/edit/<%= email %>">Edit Profile</a>
+      <a href="/users/courses/<%= email %>">My Courses</a>
+      <a href="/users/friends/<%= email %>">Friends</a>
+      <a href="/users/message-box/<%= email %>">Check your messages</a>
+      <a href="/users/write-message">Write messages</a>
+    </nav>
     <h1>Classmates in <%= course %></h1>
 
     <% if (students.length === 0) { %>
@@ -22,10 +31,16 @@
         <% } else { %>
         <em>No photo</em>
         <% } %>
-        <form action="/users/send-friend-request" method="POST" style="display:inline;">
-          <input type="hidden" name="recipient" value="<%= student.email %>">
-          <button type="submit" class="button-style">Send friend request</button>
-        </form>        
+        <form
+          action="/users/send-friend-request"
+          method="POST"
+          style="display: inline"
+        >
+          <input type="hidden" name="recipient" value="<%= student.email %>" />
+          <button type="submit" class="button-style">
+            Send friend request
+          </button>
+        </form>
       </li>
       <% }) %>
     </ul>

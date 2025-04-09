@@ -9,23 +9,19 @@
   </head>
   <body>
     <header class="banner">
-        <h1 class="banner">Web For Cooking</h1>
+      <h1 class="banner">Web For Cooking</h1>
     </header>
-    <h2 class="introduction__catch-phrase">Welcome <%= firstname %>  <%= lastname %></h2>
+    <h2 class="introduction__catch-phrase">
+      Welcome <%= firstname %> <%= lastname %>
+    </h2>
     <nav>
-      <a href="/about-us.html">About us</a>
-      <a href="/recipes.html">Recipes</a>
-      <menu class="dropdown">
-        <span id="profile-button">Profile</span>
-        <div class="dropdown-content">
-          <a href="/users/profile/<%= email %>">View Profile</a>
-          <a href="/users/profile/edit/<%= email %>">Edit Profile</a>
-          <a href="/users/courses/<%= email %>">My Courses</a>
-          <a href="/users/friends/<%= email %>">Friends</a>
-          <a href="/users/message-box/<%= email %>">Check your messages</a>
-          <a href="/users/write-message">Write messages</a>
-        </div>
-      </menu>
+      <a href="/users/home/<%= email %>">Home</a>
+      <a href="/users/profile/<%= email %>">View Profile</a>
+      <a href="/users/profile/edit/<%= email %>">Edit Profile</a>
+      <a href="/users/courses/<%= email %>">My Courses</a>
+      <a href="/users/friends/<%= email %>">Friends</a>
+      <a href="/users/message-box/<%= email %>">Check your messages</a>
+      <a href="/users/write-message">Write messages</a>
     </nav>
 
     <main>

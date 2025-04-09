@@ -13,9 +13,12 @@
     </header>
     <nav>
         <a href="/users/home/<%= email %>">Home</a>
-        <a href="/about-us.html">About us</a>
-        <a href="/recipes.html">Recipes</a>
+        <a href="/users/profile/<%= email %>">View Profile</a>
+        <a href="/users/profile/edit/<%= email %>">Edit Profile</a>
+        <a href="/users/courses/<%= email %>">My Courses</a>
+        <a href="/users/friends/<%= email %>">Friends</a>
         <a href="/users/message-box/<%= email %>">Check your messages</a>
+        <a href="/users/write-message">Write messages</a>
     </nav>
 
     <main>

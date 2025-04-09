@@ -302,7 +302,6 @@ router.get("/friends/:userid", (req, res) => {
       return res.redirect("/");
   }
 
-  // Get confirmed friends (bidirectional)
   const friendsQuery = `
       SELECT u.firstName, u.lastName, u.email, u.photo
       FROM users u
@@ -311,7 +310,6 @@ router.get("/friends/:userid", (req, res) => {
          OR (f.user_email = u.email AND f.friend_email = ?)
   `;
 
-  // Get incoming friend requests
   const requestsQuery = `
       SELECT u.firstName, u.lastName, u.email, u.photo
       FROM users u
@@ -339,7 +337,6 @@ router.get("/friends/:userid", (req, res) => {
       });
   });
 });
-
 
 router.post("/sendMessage", function (req, res) {
   if (req.session.user) {
@@ -406,7 +403,6 @@ router.post("/friend-request/accept", (req, res) => {
       return res.status(400).send("Missing sender or recipient.");
   }
 
-  // Insert into friends and remove from friend_requests
   db.run(
       "INSERT INTO friends (user_email, friend_email) VALUES (?, ?)",
       [recipient, sender],

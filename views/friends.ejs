@@ -7,55 +7,68 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <h1>Your Friends</h1>
+    <header>
+      <h1 class="banner">My Friends</h1>
+    </header>
+    <nav>
+      <a href="/users/home/<%= email %>">Home</a>
+      <a href="/users/profile/<%= email %>">View Profile</a>
+      <a href="/users/profile/edit/<%= email %>">Edit Profile</a>
+      <a href="/users/courses/<%= email %>">My Courses</a>
+      <a href="/users/friends/<%= email %>">Friends</a>
+      <a href="/users/message-box/<%= email %>">Check your messages</a>
+      <a href="/users/write-message">Write messages</a>
+    </nav>
+    <main>
+      <h2>Your Friends</h2>
+      <% if (friends.length === 0) { %>
+      <p>You don't have any friends yet.</p>
+      <% } else { %>
+      <ul>
+        <% friends.forEach(friend => { %>
+        <li>
+          <a href="/users/profile/<%= friend.email %>">
+            <strong><%= friend.firstName %> <%= friend.lastName %></strong>
+          </a>
+        </li>
+        <% }) %>
+      </ul>
+      <% } %>
 
-    <% if (friends.length === 0) { %>
-    <p>You don't have any friends yet.</p>
-    <% } else { %>
-    <ul>
-      <% friends.forEach(friend => { %>
-      <li>
-        <a href="/users/profile/<%= friend.email %>">
-          <strong><%= friend.firstName %> <%= friend.lastName %></strong>
-        </a>
-      </li>
-      <% }) %>
-    </ul>
-    <% } %>
+      <h2>Friend Requests</h2>
+      <% if (requests.length === 0) { %>
+      <p>No pending friend requests.</p>
+      <% } else { %>
+      <ul>
+        <% requests.forEach(req => { %>
+        <li>
+          <strong><%= req.firstName %> <%= req.lastName %></strong><br />
+          <% if (req.photo) { %>
+          <img src="<%= req.photo %>" alt="photo" width="100" /><br />
+          <% } %> <%= req.email %>
+          <form
+            action="/users/friend-request/accept"
+            method="POST"
+            style="display: inline"
+          >
+            <input type="hidden" name="sender" value="<%= req.email %>" />
+            <button type="submit">Accept</button>
+          </form>
 
-    <h2>Friend Requests</h2>
-    <% if (requests.length === 0) { %>
-    <p>No pending friend requests.</p>
-    <% } else { %>
-    <ul>
-      <% requests.forEach(req => { %>
-      <li>
-        <strong><%= req.firstName %> <%= req.lastName %></strong><br />
-        <% if (req.photo) { %>
-        <img src="<%= req.photo %>" alt="photo" width="100" /><br />
-        <% } %> <%= req.email %>
-        <form
-          action="/users/friend-request/accept"
-          method="POST"
-          style="display: inline"
-        >
-          <input type="hidden" name="sender" value="<%= req.email %>" />
-          <button type="submit">Accept</button>
-        </form>
+          <form
+            action="/users/friend-request/remove"
+            method="POST"
+            style="display: inline"
+          >
+            <input type="hidden" name="sender" value="<%= req.email %>" />
+            <button type="submit">Remove</button>
+          </form>
+        </li>
+        <% }) %>
+      </ul>
+      <% } %>
 
-        <form
-          action="/users/friend-request/remove"
-          method="POST"
-          style="display: inline"
-        >
-          <input type="hidden" name="sender" value="<%= req.email %>" />
-          <button type="submit">Remove</button>
-        </form>
-      </li>
-      <% }) %>
-    </ul>
-    <% } %>
-
-    <a href="/users/home/<%= email %>">Back to Home</a>
+      <a href="/users/home/<%= email %>">Back to Home</a>
+    </main>
   </body>
 </html>
