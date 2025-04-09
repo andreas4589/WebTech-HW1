@@ -29,38 +29,55 @@ router.post("/", (req, res) => {
 
 router.post("/update", (req, res) => {
     const { firstName, lastName, password, email, program, age, hobbies, photo, courses } = req.body;
-
-    // Optional: Verify session user matches the email
+  
     if (req.session.user !== email) {
-        console.log("Unauthorized access attempt by:", req.session.user, email);
-        return res.status(403).send("Unauthorized");
+      return res.status(403).send("Unauthorized");
     }
-
-    const sql = `
-        UPDATE users 
-        SET 
-            firstName = ?, 
-            lastName = ?, 
-            password = ?, 
-            major = ?, 
-            age = ?, 
-            photo = ?, 
-            hobbies = ?,
-            courses = ?,
-        WHERE email = ?
+  
+    const updateUserSQL = `
+      UPDATE users 
+      SET 
+        firstName = ?, 
+        lastName = ?, 
+        password = ?, 
+        major = ?, 
+        age = ?, 
+        photo = ?, 
+        hobbies = ?
+      WHERE email = ?
     `;
-
-    const values = [firstName, lastName, password, program, age, photo, hobbies, email,
-        courses];
-
-    db.run(sql, values, function(err) {
+  
+    const userValues = [firstName, lastName, password, program, age, photo, hobbies, email];
+  
+    db.run(updateUserSQL, userValues, function (err) {
+      if (err) {
+        console.error("User update error:", err);
+        return res.status(500).send("User update failed");
+      }
+  
+      // Step 2: Update courses
+      db.run("DELETE FROM user_courses WHERE user_email = ?", [email], function (err) {
         if (err) {
-            console.error("Update error:", err);
-            return res.status(500).send("Database update failed");
+          console.error("Course delete error:", err);
+          return res.status(500).send("Course reset failed");
         }
-
-        res.redirect("/users/profile/" + email); 
+  
+        // Insert the new course selections (assuming 'courses' is an array)
+        if (Array.isArray(courses) && courses.length > 0) {
+          const insertCourseSQL = "INSERT INTO user_courses (user_email, course_name) VALUES (?, ?)";
+          const stmt = db.prepare(insertCourseSQL);
+  
+          courses.forEach(course => {
+            stmt.run(email, course);
+          });
+  
+          stmt.finalize();
+        }
+  
+        res.redirect("/users/profile/" + email);
+      });
     });
-});
+  });
+  
 
 module.exports = router;
