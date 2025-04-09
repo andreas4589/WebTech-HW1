@@ -20,7 +20,7 @@
         <a href="/users/message-box/<%= email %>">Check your messages</a>
         <a href="/users/write-message">Write messages</a>
     </nav>
-    <main>
+    <main class="profile-section">
       <h2><%=fname%>'s profile</h2>
       <ul>
         <li><strong>First name:</strong> <%=fname%></li>
@@ -29,7 +29,7 @@
         <li><strong>E-mail address:</strong> <%=email%></li>
         <li>
           <strong>Photo:</strong>
-          <img src="<%=photo%>" alt="photo" width="100" />
+          <img src="<%=photo%>" class="profile-photo" alt="photo" width="100" />
         </li>
         <li><strong>Program / Major:</strong> <%= program %></li>
         <li><strong>Hobbies:</strong> <%=hobbies%></li>

@@ -67,7 +67,7 @@ main{
     margin: 1em 6em;
     padding: 1em 6em;
     background-color: #f4f4f4;
-    text-align: justify;
+    text-align: center;
     box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -168,179 +168,6 @@ nav a:hover {
     color:#0077cc;
 }
 
-.recipe h2, .ingredients, .instructions {
-    text-align: left;;
-}
-
-.recipe-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 1.0em;
-    width: 100%;
-}
-
-.recipe-img {
-    width: 130%;
-    border-radius: 0.7em;
-    box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
-    margin-bottom: 2em;
-}
-
-.ingredients {
-    width: 100%;
-    list-style:inside;
-    padding: 0;
-}
-
-.ingredients li {
-    padding: 0.15em 0;
-}
-
-.instructions {
-    list-style: none;
-    padding: 0;
-    width: 80%;
-    list-style-type: decimal; 
-}
-
-.instructions li {
-    padding: 0.5rem 0;
-}
-
-#nutrition {
-    width: 70%;
-    font-size: 0.75em;
-    margin: 1rem auto;
-    border-collapse: collapse;
-}
-
-#nutrition th, #nutrition td {
-    padding: 0.6rem;
-    text-align: left;
-}
-
-#nutrition th {
-    font-weight: bold;
-}
-
-.link {
-    display: block;
-    text-align: center;
-    margin: 1.6rem 0;
-    text-decoration: none;
-    font-weight: bold;
-    color: #0077cc;
-}
-
-.link:hover {
-    text-decoration: underline;
-    color:#0669a1
-}
-
-.nutrition tr{
-    background-color: grey;
-}
-
-.personal {
-    font-family: Arial, sans-serif;
-    color: darkgreen;
-    background-color: #f8f8f8;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 10px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.personal p {
-    font-size: 1em;
-    margin: 10px 0;
-    line-height: 1.5;
-}
-
-.personal h2 {
-    font-size: 1.5em;
-    color: rgb(197, 3, 3);
-    border-bottom: 2px solid darkgreen;
-    padding-bottom: 5px;
-}
-
-footer {
-    background: linear-gradient(to top, #cecece86, #ffffff5d);
-    padding: 0.5em;
-    text-align: center;
-    border-top: 2px solid #ccc;
-    font-family: Arial, sans-serif;
-}
-
-footer label {
-    font-weight: bold;
-    margin-right: 0.6em;
-    font-size: 0.6em;
-}
-
-footer p {
-    margin-top: 1em;
-    font-size: 0.6em;
-    color: #333;
-}
-
-footer a {
-    color: purple;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-
-#darkModeToggle {
-    top: 1em;
-    right: 1em;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-#recipe-form {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1em 0 2em;
-}
-
-.change-style-menu {
-    padding: 0.2em 0em 0.2em;
-    width: 70%;
-    margin: auto;
-}
-
-.change-style-menu h2, #add-recipe h2{
-    margin-top: 0; /* Remove or reduce top margin */
-    margin-bottom: 0.2em; /* Adjust bottom margin */
-}
-
-.recipe-input {
-    background-color: #f4f4f4;
-    box-shadow: #494949 0.1em 0.1em 0.1em;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    width: 15%;
-    padding: 0.25em;
-    margin: 0.35em;
-    border-radius: 0.1em;
-    border: 1px solid #9e1010;
-    font-size: 1em;
-    cursor: pointer;
-}
-
-input#recipe-image{
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    width: 15%;
-}
-
 #file-input {
     display: flex; 
     margin: 0.5em auto; 
@@ -358,68 +185,6 @@ input#recipe-image{
     margin-left: 1em;
     width: 30%;
     cursor: pointer; 
-}
-
-#recipe-ingredients {
-    width: 20%;
-}
-
-#submit-recipe {
-    background-color: #b32d1b;
-    color: white;
-    font-weight: bold;
-    padding: 0.5em 1em;
-    border-radius: 0.1em;
-    border: 1px solid #000000;
-    cursor: pointer;
-}
-
-#member-photo{
-    width: 30%;
-}
-
-#courses-table{
-    border-collapse: collapse;
-    width: 60%;
-    color:black;
-    box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);
-    margin-top: 2em;
-    margin-bottom: 3em;
-}
-
-#courses-table th, 
-#courses-table td {
-    border: 1.5px solid black;
-    padding: 5px;
-    text-align: left;
-}
-
-#courses-table th {
-    background-color: #444; 
-    color: white; 
-}
-
-#empty-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-
-.course-title .course-tooltip{
-    visibility: hidden;
-    width: 120px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-
-}
-.course-title:hover .course-tooltip {
-    visibility: visible;
-    opacity: 1;
 }
 
 #login-container {
@@ -489,7 +254,7 @@ input#recipe-image{
 }
 
 #login-container select {
-    width: 85%;
+    width: 40%;
     padding: 0.25em; /* Slightly larger padding */
     border-radius: 5px; /* Rounded corners */
     border: 1px solid #ccc; /* Softer border color */
@@ -498,128 +263,107 @@ input#recipe-image{
     text-align: center;
 }
 
-#profile-button{
-    all: unset;
-    cursor: pointer;
-}
-
-#profile-button img{
-    width: 2em;
-    height: 2em;
-    border-radius: 50%;
-    box-shadow: 0 0.2em 0.3em 0 rgba(0, 0, 0, 0.2), 0 0.4em 2em 0 rgba(0, 0, 0, 0.19);              
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-  }
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 150px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-    border-radius: 6px;
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Menu styles (optional) */
-.menu a {
-    display: inline-block;
-    margin: 0.5em;
-    padding: 0.5em 1em;
-    background: #007bff;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  /* Modal styles */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    backdrop-filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-    width: 90%;
-    max-width: 70%;
-    text-align: center;
-    position: relative;
-  }
-  
-  /* Hide all modal sections by default */
-  .modal-section {
-    display: none;
-  }
-  
-  /* Show active modal section */
-  .modal-section.active {
-    display: block;
-  }
-  
-  #modal-profile form {
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, auto);
-    gap: 0.5em;
-    justify-items: start;
-    margin-bottom: 1em;
-  }
-
-  #modal-profile form > * {
-    width: 90%;
-  }
-
-  .error-box {
+.error-box {
     border: 1px solid red;
     padding: 10px;
     background-color: #ffe6e6;
     color: red;
     margin-bottom: 15px;
     border-radius: 5px;
-  }
-  
+}
 
-  #email{
+#email{
     background-color: #797979;
     color:#cccc;
     font-weight: bold;
     cursor: not-allowed;
 }
 
+.profile-section {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px 30px;
+    background-color: #fdfdfd;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+.profile-section h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color:rgb(212, 68, 48);
+}
+
+.profile-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-section li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1.05em;
+}
+
+.profile-section li:last-child {
+    border-bottom: none;
+}
+
+.profile-photo {
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.classmates-section {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background-color: #fcfcfc;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+  
+.classmates-section h1 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: rgb(212, 68, 48);;
+}
+  
+.classmates-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.classmate-card {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+  
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: rgb(212, 68, 48);
+    font-weight: bold;
+}
+  
+.back-link:hover {
+    text-decoration: underline;
+}
+  
 @media screen and (max-width: 1200px) {
 
     main{

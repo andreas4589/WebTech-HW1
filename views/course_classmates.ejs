@@ -17,35 +17,37 @@
       <a href="/users/message-box/<%= email %>">Check your messages</a>
       <a href="/users/write-message">Write messages</a>
     </nav>
-    <h1>Classmates in <%= course %></h1>
+    <main class="classmates-section">
+      <h1>Classmates in <%= course %></h1>
 
-    <% if (students.length === 0) { %>
-    <p>No other students enrolled in this course.</p>
-    <% } else { %>
-    <ul>
-      <% students.forEach(student => { %>
-      <li>
-        <strong><%= student.firstName %> <%= student.lastName %></strong><br />
-        <% if (student.photo) { %>
-        <img src="<%= student.photo %>" alt="photo" width="100" />
-        <% } else { %>
-        <em>No photo</em>
-        <% } %>
-        <form
-          action="/users/send-friend-request"
-          method="POST"
-          style="display: inline"
-        >
-          <input type="hidden" name="recipient" value="<%= student.email %>" />
-          <button type="submit" class="button-style">
-            Send friend request
-          </button>
-        </form>
-      </li>
-      <% }) %>
-    </ul>
-    <% } %>
+      <% if (students.length === 0) { %>
+      <p>No other students enrolled in this course.</p>
+      <% } else { %>
+      <ul>
+        <% students.forEach(student => { %>
+        <li class="classmate-card">
+          <strong><%= student.firstName %> <%= student.lastName %></strong><br />
+          <% if (student.photo) { %>
+          <img src="<%= student.photo %>" class="profile-photo" alt="photo" width="100" />
+          <% } else { %>
+          <em>No photo</em>
+          <% } %>
+          <form
+            action="/users/send-friend-request"
+            method="POST"
+            style="display: inline"
+          >
+            <input type="hidden" name="recipient" value="<%= student.email %>" />
+            <button type="submit" class="button-style">
+              Send friend request
+            </button>
+          </form>
+        </li>
+        <% }) %>
+      </ul>
+      <% } %>
 
-    <a href="/users/courses/<%= email %>">Back to Courses</a>
+      <a href="/users/courses/<%= email %>" class="back-link">Back to Courses</a>
+    </main>
   </body>
 </html>
