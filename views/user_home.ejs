@@ -11,9 +11,6 @@
     <header class="banner">
       <h1 class="banner">Web For Cooking</h1>
     </header>
-    <h2 class="introduction__catch-phrase">
-      Welcome <%= firstname %> <%= lastname %>
-    </h2>
     <nav>
       <a href="/users/home/<%= email %>">Home</a>
       <a href="/users/profile/<%= email %>">View Profile</a>
@@ -23,11 +20,11 @@
       <a href="/users/message-box/<%= email %>">Check your messages</a>
       <a href="/users/write-message">Write messages</a>
     </nav>
-
     <main>
       <section class="introduction">
         <h2 class="introduction__catch-phrase">
-          Welcome to web for cooking — a journey through flavors and history.
+          Welcome <%= firstname %> <%= lastname %>
+          to Web for Cooking — a journey through flavors and history.
         </h2>
         <p class="introduction__text">
           Cooking is more than just making meals — it's a story told through
