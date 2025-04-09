@@ -237,6 +237,7 @@ nav a:hover {
     border: none; /* Remove border */
     cursor: pointer;
     font-size: 0.75em;
+    margin-bottom: 10px;
     transition: background-color 0.3s ease; /* Smooth transition for hover */
 }
 

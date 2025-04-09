@@ -28,34 +28,28 @@
       </p>
 
       <section id="message-box">
-        <% if (messages_list.length==0) { %>
-        <p>Your haven't received any messages...</p>
-        <% }else{ %>
-        <p>hello</p>
-        <% for(var i=0 ; i < messages_list.length ; i++) { %>
-        <section id="messages-container">
-          <article class="message">
-            <p class="message__sender">
-              <%= messages_list[i].firstName %> <%= messages_list[i].lastName %>
-            </p>
-            <br />
-            <p class="message__content"><%= messages_list[i].message %></p>
-            <br />
-            <form
-              action="/users/write-message/<%=message_list[i].email%>"
-              method="get"
-            >
-              <button type="submit">
-                Reply to <%= messages_list[i].firstName %>
-              </button>
-            </form>
-          </article>
-        </section>
-        <% } %> <% } %>
+        <h2>Messages for <%= name %></h2>
+      
+        <% if (!messages_list || messages_list.length === 0) { %>
+          <p>You haven't received any messages...</p>
+        <% } else { %>
+          <% messages_list.forEach(m => { %>
+            <section class="message">
+              <p><strong>From:</strong> <%= m.firstName %> <%= m.lastName %> (<%= m.email %>)</p>
+              <p><%= m.message %></p>
+      
+              <form action="/users/write-message/<%= m.email %>" method="get">
+                <button type="submit" class="button-style">Reply</button>
+              </form>
+            </section>
+          <% }) %>
+        <% } %>
       </section>
+      
+      
 
       <a href="/users/write-message">
-        <button type="button">send or reply to one of your friends</button>
+        <button type="button" class="button-style">Send or reply to one of your friends</button>
       </a>
     </main>
   </body>

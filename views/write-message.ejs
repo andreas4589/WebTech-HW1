@@ -22,35 +22,31 @@
     </nav>
 
     <main>
-        <h2>Write a message</h2>
-        <p>
-            Hello <%=name%>.
-            Here you can write and reply to your friends
-        </p>
-
-        <% if (friends_list.length == []) { %>
-            <p>
-                You don't have any friends to send a message to.
-                Go make some friends !!!
-            </p>
-        <% }else{ %>
-            <form action="/sendMessage" method="post">
-                <label for="recipient">Choose a friend you want to send a message to</label>
-                <select name="recipient">
-                    <% for(var i=0 ; i < friends_list.length ; i++) { %>
-                        <% if(recipient != "" && friends_list[i].email == recipient) { %>
-                            <option value="<%= friends_list[i].email %>" selected="selected"><%= friends[i].firstName %> <%= friends[i].lastName %></option>
-                        <% } 
-                        else { %>
-                            <option value="<%= friends_list[i].email %>"><%= friends[i].firstName %> <%= friends[i].lastName %></option>
-                        <% } %>
-                    <% } %>
-                </select>
-                <textarea name="message-content" id="message-content" rows="5" cols="33"></textarea>
-                <button type="submit">Send</button>
-            </form>
+        <h2>Write a Message</h2>
+        <p>Hello <%= name %>. Here you can write and reply to your friends.</p>
+      
+        <% if (!friends_list || friends_list.length === 0) { %>
+          <p>You don't have any friends to send a message to. Go make some friends!</p>
+        <% } else { %>
+          <form action="/users/sendMessage" method="POST">
+            <label for="recipient">Choose a friend:</label><br />
+            <select name="recipient" id="recipient" required>
+              <% friends_list.forEach(friend => { %>
+                <option value="<%= friend.email %>" 
+                  <%= recipient === friend.email ? "selected" : "" %>>
+                  <%= friend.firstName %> <%= friend.lastName %>
+                </option>
+              <% }) %>
+            </select><br /><br />
+      
+            <label for="message-content">Message:</label><br />
+            <textarea name="message-content" id="message-content" rows="5" cols="40" required></textarea><br /><br />
+      
+            <button type="submit" class="button-style">Send</button>
+          </form>
         <% } %>
     </main>
+      
 
 </body>
 </html>
