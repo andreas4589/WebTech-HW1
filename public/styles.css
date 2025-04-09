@@ -364,7 +364,24 @@ nav a:hover {
 .back-link:hover {
     text-decoration: underline;
 }
-  
+
+
+.message{
+    border: solid;
+    border-color: #797979;
+    margin-bottom: 2rem;
+    border-radius: 6px;
+}
+
+.message__content{
+    border-radius: 6px;
+    background-color: #ddd;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 @media screen and (max-width: 1200px) {
 
     main{

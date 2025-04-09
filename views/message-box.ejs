@@ -1,3 +1,8 @@
+<!-- 
+Dynamic page where the user can check his inbox.
+For each message, there is a reply button that redirects to the write-message page with the recipient already filled.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,7 +41,7 @@
           <% messages_list.forEach(m => { %>
             <section class="message">
               <p><strong>From:</strong> <%= m.firstName %> <%= m.lastName %> (<%= m.email %>)</p>
-              <p><%= m.message %></p>
+              <p class="message__content"><%= m.message %></p>
       
               <form action="/users/write-message/<%= m.email %>" method="get">
                 <button type="submit" class="button-style">Reply</button>
